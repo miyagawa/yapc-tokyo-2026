@@ -42,6 +42,7 @@ button.chip{flex:0 0 auto;border:0;border-radius:999px;background:var(--chip);co
 button.chip[aria-pressed=true]{background:var(--chip-on);color:var(--chip-on-fg);font-weight:600}
 button.chip.day{font-size:14px;padding:7px 14px}
 .slot{margin-top:14px}
+input#q{flex:1;min-width:0;font:inherit;font-size:16px;padding:7px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--fg)}
 .slot>h2{font-size:14px;margin:0 0 6px;padding:0 4px;display:flex;align-items:center;gap:8px;
   color:var(--muted);font-variant-numeric:tabular-nums}
 .slot>h2 .t{color:var(--fg);font-size:17px;font-weight:700}
@@ -89,6 +90,7 @@ footer{margin-top:20px;font-size:12px;color:var(--muted);padding:0 4px}
 <div class="bar">
   <div class="row" id="days" role="group" aria-label="日付"></div>
   <div class="row" id="tracks" role="group" aria-label="トラック"></div>
+  <div class="row"><input type="search" id="q" placeholder="検索（タイトル・登壇者）" autocomplete="off" enterkeyhint="search" aria-label="検索"></div>
 </div>
 <main id="list"><p class="empty">読み込み中…</p></main>
 <section class="ics" id="ics">
@@ -113,12 +115,13 @@ footer{margin-top:20px;font-size:12px;color:var(--muted);padding:0 4px}
 "use strict";
 var DAY_LABEL={"2026-11-27":"11/27 (金) 前夜祭","2026-11-28":"11/28 (土) Day 1","2026-11-29":"11/29 (日) Day 2"};
 var TRACK_COLOR={"Track A":"--tA","Track B":"--tB","Track C":"--tC","ハンズオン":"--tH","踊り場":"--tO"};
+var SHORT_DAY={"2026-11-27":"11/27","2026-11-28":"11/28","2026-11-29":"11/29"};
 var BREAK=/^(休憩|転換|間|ランチ休憩)$/;
 var $=function(id){return document.getElementById(id)};
 var store={get:function(k,d){try{var v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},
   set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 var stars=store.get("stars",{});
-var state={day:null,track:store.get("track","all")};
+var state={day:null,q:"",track:store.get("track","all")};
 var events=[],days=[],tracks=[];
 
 function nowMs(){
@@ -134,10 +137,11 @@ function chip(label,pressed,cls,on){
   var b=document.createElement("button");b.type="button";b.className="chip"+(cls?" "+cls:"");
   b.textContent=label;b.setAttribute("aria-pressed",pressed?"true":"false");b.onclick=on;return b;
 }
+function clearQ(){state.q="";$("q").value=""}
 function renderBars(){
   var d=$("days");d.textContent="";
-  days.forEach(function(day){d.appendChild(chip(DAY_LABEL[day]||day,state.day===day,"day",function(){state.day=day;render(true)}))});
-  if(events.some(function(e){return !e.s}))d.appendChild(chip("時間未定",state.day==="tbd","day",function(){state.day="tbd";render(true)}));
+  days.forEach(function(day){d.appendChild(chip(DAY_LABEL[day]||day,!state.q&&state.day===day,"day",function(){clearQ();state.day=day;render(true)}))});
+  if(events.some(function(e){return !e.s}))d.appendChild(chip("時間未定",!state.q&&state.day==="tbd","day",function(){clearQ();state.day="tbd";render(true)}));
   var t=$("tracks");t.textContent="";
   [["all","すべて"],["star","★ のみ"]].concat(tracks.map(function(x){return[x,x]})).forEach(function(p){
     t.appendChild(chip(p[1],state.track===p[0],"",function(){state.track=p[0];store.set("track",p[0]);render(false)}));
@@ -165,41 +169,54 @@ function visible(e){
   if(state.track!=="all")return e.track===state.track;
   return true;
 }
+function matches(e,q){
+  return [e.title,e.speaker,e.twitter,e.track].some(function(v){return v&&v.toLowerCase().indexOf(q)>=0});
+}
+function slotHtml(t,items,now,nextT,withDate){
+  var real=items.filter(function(e){return !e.brk});
+  if(!real.length){
+    var names={};items.forEach(function(e){names[e.title]=1});
+    return '<div class="slot" id="s'+t+'"><div class="brk"><span>'+hm(t)+'</span>'+Object.keys(names).map(function(n){return'<span>'+esc(n)+'</span>'}).join("")+'</div></div>';
+  }
+  var isNow=real.some(function(e){return e.s<=now&&now<e.e}),isNext=t===nextT;
+  return '<div class="slot" id="s'+t+'"><h2>'+(withDate?'<span>'+esc(SHORT_DAY[jstDate(t)]||jstDate(t))+'</span>':"")+'<span class="t">'+hm(t)+'</span>'+
+    (isNow?'<span class="badge now">NOW</span>':isNext?'<span class="badge next">NEXT</span>':"")+'</h2>'+
+    real.map(function(e){return card(e,e.s<=now&&now<e.e?"now":isNext?"next":"")}).join("")+'</div>';
+}
 function render(scroll){
   renderBars();
-  var now=nowMs(),list=$("list"),html="";
-  if(state.day==="tbd"){
-    var u=events.filter(function(e){return !e.s&&visible(e)});
-    html='<div class="slot"><h2><span class="t">時間未定</span>（LT などの採択トーク）</h2>'+u.map(function(e){return card(e)}).join("")+'</div>';
-    list.innerHTML=u.length?html:'<p class="empty">該当するトークはありません</p>';
-    $("jump").style.display="none";return;
-  }
-  var dayEv=events.filter(function(e){return e.s&&e.day===state.day});
-  // "next" = earliest start time after now among non-break items of this day
-  var nextT=null;
-  dayEv.forEach(function(e){if(e.s>now&&!e.brk&&(nextT===null||e.s<nextT))nextT=e.s});
-  var slots={},order=[];
-  dayEv.forEach(function(e){if(!slots[e.s]){slots[e.s]=[];order.push(e.s)}slots[e.s].push(e)});
-  var anchor=null;
-  order.forEach(function(t){
-    var items=slots[t],real=items.filter(function(e){return !e.brk&&visible(e)});
-    var brks=items.filter(function(e){return e.brk&&(state.track==="all"||state.track===e.track)});
-    if(!real.length&&(!brks.length||state.track==="star"))return;
-    var isNow=real.some(function(e){return e.s<=now&&now<e.e}),isNext=t===nextT;
-    if(anchor===null&&(isNow||isNext))anchor=t;
-    if(!real.length){
-      var names={};brks.forEach(function(e){names[e.title]=1});
-      html+='<div class="slot" id="s'+t+'"><div class="brk"><span>'+hm(t)+'</span>'+Object.keys(names).map(function(n){return'<span>'+esc(n)+'</span>'}).join("")+'</div></div>';
-      return;
-    }
-    html+='<div class="slot" id="s'+t+'"><h2><span class="t">'+hm(t)+'</span>'+
-      (isNow?'<span class="badge now">NOW</span>':isNext?'<span class="badge next">NEXT</span>':"")+'</h2>'+
-      real.map(function(e){return card(e,e.s<=now&&now<e.e?"now":isNext?"next":"")}).join("")+'</div>';
+  var now=nowMs(),list=$("list"),html="",q=state.q;
+  // now / next across the whole event (not just the selected day), among what the filter shows
+  var vis=events.filter(function(e){return e.s&&!e.brk&&visible(e)});
+  var nextT=null,nowT=null;
+  vis.forEach(function(e){
+    if(e.s>now&&(nextT===null||e.s<nextT))nextT=e.s;
+    if(e.s<=now&&now<e.e&&(nowT===null||e.s<nowT))nowT=e.s;
   });
-  list.innerHTML=html||'<p class="empty">'+(state.track==="star"?"★を付けたトークはまだありません。各トークの ☆ をタップしてください。":"該当するトークはありません")+'</p>';
+  var target=nowT!==null?nowT:nextT;
+  var pool,withDate=false,tbd=[];
+  if(q){
+    pool=events.filter(function(e){return !e.brk&&visible(e)&&matches(e,q)});
+    tbd=pool.filter(function(e){return !e.s});pool=pool.filter(function(e){return e.s});withDate=true;
+  }else if(state.day==="tbd"){
+    pool=[];tbd=events.filter(function(e){return !e.s&&visible(e)});
+  }else{
+    pool=events.filter(function(e){return e.s&&e.day===state.day&&(e.brk?state.track==="all"||state.track===e.track:visible(e))});
+  }
+  var slots={},order=[];
+  pool.forEach(function(e){if(!slots[e.s]){slots[e.s]=[];order.push(e.s)}slots[e.s].push(e)});
+  order.forEach(function(t){html+=slotHtml(t,slots[t],now,nextT,withDate)});
+  if(tbd.length)html+='<div class="slot"><h2><span class="t">時間未定</span>（LT などの採択トーク）</h2>'+tbd.map(function(e){return card(e)}).join("")+'</div>';
+  list.innerHTML=html||'<p class="empty">'+(q?"「"+esc(q)+"」に一致するトークはありません":state.track==="star"?"★を付けたトークはまだありません。各トークの ☆ をタップしてください。":"該当するトークはありません")+'</p>';
   var j=$("jump");
-  if(anchor!==null){j.style.display="block";j.onclick=function(){go(anchor)};if(scroll&&jstDate(now)===state.day)go(anchor)}
-  else j.style.display="none";
+  if(target===null){j.style.display="none";return}
+  j.style.display="block";
+  j.onclick=function(){
+    var d=jstDate(target);
+    if(state.q||state.day!==d){state.q="";$("q").value="";state.day=d;render(false)}
+    go(target);
+  };
+  if(scroll&&!q&&state.day===jstDate(target)&&jstDate(now)===state.day)go(target);
 }
 function go(t){var el=$("s"+t);if(el){var y=el.getBoundingClientRect().top+scrollY-document.querySelector(".bar").offsetHeight-4;scrollTo({top:y,behavior:"smooth"})}}
 
@@ -223,6 +240,13 @@ $("starics").addEventListener("click",function(ev){
     document.body.appendChild(a);a.click();a.remove();
   });
 });
+
+var qt;
+$("q").addEventListener("input",function(){
+  clearTimeout(qt);var v=this.value;
+  qt=setTimeout(function(){state.q=v.trim().toLowerCase();render(false);scrollTo(0,0)},150);
+});
+if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost"))navigator.serviceWorker.register("sw.js").catch(function(){});
 
 var base=location.href.replace(/[?#].*$/,"").replace(/[^/]*$/,"");
 if(/^https:/.test(base))$("webcal").href=base.replace(/^https:/,"webcal:")+"ics/all.ics";
