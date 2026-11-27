@@ -1,0 +1,42 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:710b33c4-c851-4e5b-9a0f-7faf125f4c32@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T011000Z
+DTEND:20261129T013000Z
+SUMMARY:SIMカードの遊びかた。〜自宅を通信事業者にして
+ みた〜 — Yuto Shimizu
+LOCATION:Track C
+DESCRIPTION:登壇者: Yuto Shimizu\nhttps://fortee.jp/yapc-tokyo-2026/prop
+ osal/710b33c4-c851-4e5b-9a0f-7faf125f4c32\n\n普段、私は業務でSIM
+ カードの設計や調達をしています。\n今回は、そんな自
+ 分にとって身近なSIMについて、誰でも買える市販のカ
+ ードを利用して遊んでみました。\n自宅に認証サーバを
+ 立ててSIMをWi-fi認証に利用したり、SIMの認証コマンドの
+ 応答からSSH鍵を作ったり、最後には自作のJava Cardアプ
+ レットを載せたりしてみます。\n\nこうしたちょっとだ
+ け変わったSIMの使い方を通して、普段はあまり意識す
+ ることのないモバイル通信における認証の仕組みや、SI
+ Mカードがどのような役割を担っているのかについても
+ 、分かりやすく紹介します。\n\n◯ お話しすること\n* SI
+ Mの中身を覗き、SIM認証の仕組みについて紹介します\n* 
+ 誰でも試せる遊び方として、Wi-Fi認証・SSH認証・Java Card
+ アプレットのインストールを紹介します\n* SIMの中では
+ 何が秘密になっていて、通信事業者は何を知っている
+ のかを簡単に紹介します\n\n◯ 想定する聴衆\n* SIMやス
+ マートカードを触ったことがない方を想定しています
+ 。SIMの知識は前提としません。\n* カードリーダーと入
+ 手可能なSIMカードがあれば、自宅でも同じように試せ
+ ます。\n* 「SIMって携帯電話に挿す以外にもこんな遊び
+ 方ができるんだ」と思ってもらえるような話を目指し
+ ます。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/710b33c4-c851-4e5b-9a0f-7faf
+ 125f4c32
+END:VEVENT
+END:VCALENDAR

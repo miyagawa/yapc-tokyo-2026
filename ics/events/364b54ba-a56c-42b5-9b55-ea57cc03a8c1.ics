@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:364b54ba-a56c-42b5-9b55-ea57cc03a8c1@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T082000Z
+DTEND:20261128T091000Z
+SUMMARY:すべてのものはパッチである — 藤原俊一郎(fujiwar
+ a)
+LOCATION:Track A
+DESCRIPTION:登壇者: 藤原俊一郎(fujiwara)\nhttps://fortee.jp/yapc-to
+ kyo-2026/proposal/364b54ba-a56c-42b5-9b55-ea57cc03a8c1\n\n趣味で書く
+ プログラム、仕事で書くコード、個人で作るプロダク
+ ト、会社の製品、それぞれの大きさは当然違います。
+ しかし、すべてのものはパッチではないか、と思い至
+ ったのでその話をします。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/364b54ba-a56c-42b5-9b55-ea57
+ cc03a8c1
+END:VEVENT
+END:VCALENDAR

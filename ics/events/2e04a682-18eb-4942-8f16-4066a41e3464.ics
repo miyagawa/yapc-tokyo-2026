@@ -1,0 +1,40 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:2e04a682-18eb-4942-8f16-4066a41e3464@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T045500Z
+DTEND:20261128T051500Z
+SUMMARY:Railsプロダクトのテストコードを変えずにCIを高速
+ 化する — koluku
+LOCATION:Track C
+DESCRIPTION:登壇者: koluku\nhttps://fortee.jp/yapc-tokyo-2026/proposal/2
+ e04a682-18eb-4942-8f16-4066a41e3464\n\nBOOTHはRuby on Railsで開発さ
+ れており、すべてのテストを直列で走らせると合計2時
+ 間近くかかります。\n本来であればテストコードやテス
+ トデータの作り方を見直し、テストそのものを速くす
+ るべきです。しかし、そこへ割ける開発時間がないま
+ まCIの負荷が高まり、ある日CIに利用できるリソースに
+ 制限がかかってしまいました。\n\n応急処置としてジョ
+ ブの並列数を減らすと、平均40分だったパイプラインは
+ 1時間を超え、タイムアウトすることが増えました。こ
+ のままでは業務に支障が出る、でもテスト本体はすぐ
+ には直せない、一体どうすれば…。\n\nそこで、テスト
+ コードには一切手を入れず、CIの構成だけを見直しまし
+ た。パイプラインの発火条件の絞り込み、、ジョブの
+ 合成、ジョブの起動順序の変更、キャッシュの持ち方
+ の見直し、Dockerイメージの作成。ひとつひとつは地味
+ で当たり前とも捉えられるような設定変更でも、重ね
+ 合わせたけっか負荷を抑えたままCIを20分まで短縮でき
+ ました。\n\n本セッションでは、パイプラインのどこに
+ 無駄があったのか、実際に行った変更と効果とともに
+ 紹介します。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/2e04a682-18eb-4942-8f16-4066
+ a41e3464
+END:VEVENT
+END:VCALENDAR

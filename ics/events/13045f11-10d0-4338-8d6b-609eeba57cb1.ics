@@ -1,0 +1,42 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:13045f11-10d0-4338-8d6b-609eeba57cb1@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T013500Z
+DTEND:20261129T015500Z
+SUMMARY:変なものを作ろう：PHPで実装したIPルーターはど
+ こまで速くなるのか — 市川
+LOCATION:Track C
+DESCRIPTION:登壇者: 市川\nhttps://fortee.jp/yapc-tokyo-2026/proposal/1
+ 3045f11-10d0-4338-8d6b-609eeba57cb1\n\n「普通は作らないもの」
+ をあえて作ってみると、普段はOSやライブラリに隠れて
+ いるプロトコルの仕組みが見えてきます。\n\n私は今ま
+ でにPHPでHTTPS(TLS)プロトコル、TCP/IPプロトコルを実装し
+ てきました。\nPHPでTCP/IPを実装？と思うかもしれません
+ が、意外とPHPでも下の層のプロトコルが自作できます
+ 。\n\n今回はPHPのSocket機能を使って簡単なIPルーターを
+ 自作する方法を解説します。\n異なるネットワークのホ
+ スト同士がどのように通信するのか、それをルーター
+ としてどう処理するのか。\nPHPを使うことでこの処理の
+ 理解がしやすく、C言語よりは手軽に自作ルーターが体
+ 験できます。\nPHPでもPerlでもOSのsocketの仕組みを利用す
+ るため、本セッションではPHP以外の言語でも活用でき
+ る内容にします。\n\nこのセッションを通して次のこと
+ が学べます\n- IPアドレスとイーサネットとの関係\n- MAC
+ アドレスの役割\n- パケットを転送する仕組み\n- ネット
+ ワークプログラミング\n- LinuxなどOSが提供するsocket機能
+ の役割\n\n自作したルーターを使ってスループット計測
+ をし、地道なチューニングを繰り返すことで\n当初400Kbp
+ s程度だったスループットが3Gbpsを超えるまでになりま
+ した。\nその時のボトルネックと解決方法も解説します
+ 。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/13045f11-10d0-4338-8d6b-609e
+ eba57cb1
+END:VEVENT
+END:VCALENDAR

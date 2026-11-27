@@ -1,0 +1,32 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:d1cf6372-503f-4733-877d-741e7757d912@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T063500Z
+DTEND:20261128T071500Z
+SUMMARY:cpm v1 ~ distributionを中心に据えたCPANモジュール管理
+  ~ — Shoichi Kaji
+LOCATION:Track A
+DESCRIPTION:登壇者: Shoichi Kaji\nhttps://fortee.jp/yapc-tokyo-2026/prop
+ osal/d1cf6372-503f-4733-877d-741e7757d912\n\nPerlのパッケージマネ
+ ージャーのひとつであるcpmの話をします。\n\n2026年4月
+ にリリースしたcpm v1では、個々のdistributionを独立した
+ 単位として扱うように、内部設計を大きく変更しまし
+ た。この考え方はCarmelに端を発するものです。cpmでは
+ インストールの安定化のために採用しましたが、この
+ 考え方は、より柔軟なCPANモジュール管理にもつながる
+ と考えています。\n\n本トークでは、Carmelとcpm v1の設計
+ を通じて、distributionを独立した管理単位として保つ意
+ 義を説明します。そして、必要なdistributionを選び、目
+ 的に合ったライブラリ環境を構築するという、これか
+ らのCPANモジュール管理についてお話しします。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/d1cf6372-503f-4733-877d-741e
+ 7757d912
+END:VEVENT
+END:VCALENDAR

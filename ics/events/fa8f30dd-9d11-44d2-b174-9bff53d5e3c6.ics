@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:fa8f30dd-9d11-44d2-b174-9bff53d5e3c6@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T062000Z
+DTEND:20261129T070000Z
+SUMMARY:mutsu - 令和の時代に JIT 搭載の Raku インタープリタ
+ を実装した話 — tokuhirom
+LOCATION:Track A
+DESCRIPTION:登壇者: tokuhirom\nhttps://fortee.jp/yapc-tokyo-2026/proposa
+ l/fa8f30dd-9d11-44d2-b174-9bff53d5e3c6\n\nPerl6 がいつかはやる時
+ 代がくる。そう思いながら僕たちは Perl5 で開発してい
+ た時代が僕にもありました。\n僕は今、ギョームでは go
+ lang で開発をしています。\n\nでも、AI 全盛の今だから
+ こそ、Raku みたいな言語で書きたいなぁ、と思ってる人
+ も多いんじゃないかなぁ。多分、きっと。\n\nrakudo って
+  MoarVM + nqp で実装されてるけれど、全部 Rust で実装して
+  JIT つけたら速いんじゃねーの?? って思ったんですね。
+  でも Raku って言語仕様が巨大だから大変じゃん。でも
+ 、最近、AI ってやつが流行ってるらしいじゃないです
+ か。\nAI の力を借りれば、できそうな気がするじゃない
+ ですか。\n\nRaku は Roast っていう巨大なテストスイート
+ がある。ちょっと前に、テストがあったら AI は実装を
+ 作れるって、言ってる人、 Xでみましたよねえ?? だから
+ できるんじゃないかなぁ、って思っちゃったんですよ
+ ねえ。\n思っちゃったら作るしかないんで、作ってるん
+ ですよね。2026年2月ぐらいからチクチクと。Roast の1\,464
+ ファイル中1\,433ファイルが完走するぐらいできあがっ
+ たんすよね。\n\n入れた瞬間から実用的なコードが書け
+ る batteries included なディストリビューション。パッケー
+ ジマネージャ Zef も同梱。mise で一発で入るように作り
+ ました。\n\nまとめ: どういう思いで Raku インタープリ
+ タ作ってんだ、っていう話/どうやって作ってんだって
+ 話。\nAIがバイトコードVMを嫌がってツリーウォーク型
+ を書き始め、二重実装になったのを剥がした話。難し
+ い設計変更を避けて小さい差分に逃げるのをどう向か
+ わせるかの話。GCやJITのような、丸投げできない判断の
+ 話。とかとかをしたいなぁ、と思ってます。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/fa8f30dd-9d11-44d2-b174-9bff
+ 53d5e3c6
+END:VEVENT
+END:VCALENDAR

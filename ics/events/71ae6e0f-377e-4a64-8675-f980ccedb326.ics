@@ -1,0 +1,36 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:71ae6e0f-377e-4a64-8675-f980ccedb326@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T054500Z
+DTEND:20261129T060500Z
+SUMMARY:Yet Another Perl Computer は誰が作ってもよい ~ Z80 CPU で
+ 動く Perl VM を作る話 ~ — Yappo
+LOCATION:Track B
+DESCRIPTION:登壇者: Yappo\nhttps://fortee.jp/yapc-tokyo-2026/proposal/71
+ ae6e0f-377e-4a64-8675-f980ccedb326\n\n本セッションでは私がブラ
+ ウザ上で実装した Z80 コンピュータ上で実行可能な Perl 
+ 処理系を作った時の話をします。\nZ80 CPU と Perl の実行
+ モデルの違いを踏まえ、限られた CPU・メモリ上でどう 
+ Perl の処理系を組み立て、効率よく動かしていくのか。
+ 理想的な実装計画と、CPU の限界によってどこで妥協す
+ るのかを生々しく紹介します。\n\n一緒に「die 'hello'」
+ が動くところを経験して感動を共有しませんか?\n\nZ80 
+ 全盛期と比べてできることも増えた現代で、あえての
+ 縛りを強くした開発をする目的とは？\n生成AIを活用し
+ たシステム開発が活発になってきた現代において大事
+ なエンジニアとしての考え方や、忘れたくない技術力
+ の成長ポイントなどを詰め込みます。\n\nCPU の話が多い
+ ですが Z80 はめちゃくちゃ簡単なので、コンピュータに
+ 興味がある方なら誰でも理解できる構成にする予定で
+ す。\n\nThere’s More Than One Way To Design Instructions.\nTMTOWTDI !
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/71ae6e0f-377e-4a64-8675-f980
+ ccedb326
+END:VEVENT
+END:VCALENDAR

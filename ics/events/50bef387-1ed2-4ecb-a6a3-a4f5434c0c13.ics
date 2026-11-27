@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:50bef387-1ed2-4ecb-a6a3-a4f5434c0c13@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T023000Z
+DTEND:20261128T031000Z
+SUMMARY:2026年秋のPerl — charsbar
+LOCATION:Track A
+DESCRIPTION:登壇者: charsbar\nhttps://fortee.jp/yapc-tokyo-2026/proposal
+ /50bef387-1ed2-4ecb-a6a3-a4f5434c0c13\n\n今年もPerl 5.44のリリース
+ が大幅に遅れ、次期バージョンについての情報はまだ
+ ほとんどありませんが、現在の安定版である5.44の情報
+ を中心に最近のPerl界隈のニュースなどを紹介します。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/50bef387-1ed2-4ecb-a6a3-a4f5
+ 434c0c13
+END:VEVENT
+END:VCALENDAR

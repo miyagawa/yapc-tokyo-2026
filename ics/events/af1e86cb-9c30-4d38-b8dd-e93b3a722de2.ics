@@ -1,0 +1,45 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:af1e86cb-9c30-4d38-b8dd-e93b3a722de2@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T025000Z
+DTEND:20261128T031000Z
+SUMMARY:君もユーザー体験バリデーターにならないか？UI
+ 品質を向上させるデザイン批評の技術 — ninjinkun
+LOCATION:Track C
+DESCRIPTION:登壇者: ninjinkun\nhttps://fortee.jp/yapc-tokyo-2026/proposa
+ l/af1e86cb-9c30-4d38-b8dd-e93b3a722de2\n\n仕事や日常でUIに接した
+ 際に「なんだか変だな？」と思うことは誰でもあると
+ 思います。しかしそのUIになぜ違和感があるのか、どう
+ 改善したら良いのかを的確にフィードバックするには
+ デザイン批評の技術が必要です。従来は主にデザイナ
+ ー同士で行われていたこの批評ですが、コーディング
+ エージェントによるUI生成が身近になった現代では、エ
+ ンジニア自身がUIを批評し導く重要性が急速に高まって
+ います。\n\n本セッションでは発表者がエンジニアとし
+ てデザイナーと働いてきた経験や、自らがデザイナー
+ としても開発に関わった経験から、デザイン批評を日
+ 々の開発に活かすための思考法と実践知をお伝えしま
+ す。\n\n【本セッションの内容】\n・自分ではなく「ユ
+ ーザー」を主語にする技術（主観から客観への切り替
+ え）\n・デザインの意図（文脈・制約）を読み取る技術
+ \n・「なんとなく使いにくい」という違和感を言語化す
+ る技術\n・批評のための共通語彙を育てる方法\n・エン
+ ジニアや非デザイナー職ならではの観点を伝える重要
+ 性\n\n【話さないこと】\n・デザインハーネス\n　・デザ
+ インハーネスがある環境での批評の役割は話すかも\n\n
+ コーディングエージェントによってプログラミングが
+ 消滅しても、我々人間にはユーザー体験バリデーター
+ としての仕事が残されています。「ダサい」「使いづ
+ らい」で終わらせず、適切なフィードバックでUIの質を
+ 向上させていきましょう。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/af1e86cb-9c30-4d38-b8dd-e93b
+ 3a722de2
+END:VEVENT
+END:VCALENDAR

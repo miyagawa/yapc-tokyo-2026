@@ -1,0 +1,1212 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式) 2026-11-29
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:b1ec43bf-3060-49de-bf79-d064d9b9e1a4@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T003000Z
+DTEND:20261129T004500Z
+SUMMARY:受付 (7F)
+LOCATION:Track A
+END:VEVENT
+BEGIN:VEVENT
+UID:8895f3be-8294-4eb8-ab91-4a4223440a67@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T004500Z
+DTEND:20261129T010000Z
+SUMMARY:オープニング
+LOCATION:Track A
+END:VEVENT
+BEGIN:VEVENT
+UID:6111ae56-4ca7-418d-a619-46039253c4cd@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T010000Z
+DTEND:20261129T011000Z
+SUMMARY:休憩
+LOCATION:Track A
+END:VEVENT
+BEGIN:VEVENT
+UID:0bda112c-047f-445b-b22e-48ed60587d60@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T010000Z
+DTEND:20261129T011000Z
+SUMMARY:休憩
+LOCATION:Track B
+END:VEVENT
+BEGIN:VEVENT
+UID:c4913a1c-586b-47fb-b6ef-9c5cd1c9d44f@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T010000Z
+DTEND:20261129T011000Z
+SUMMARY:休憩
+LOCATION:Track C
+END:VEVENT
+BEGIN:VEVENT
+UID:a0b33936-8100-4fa0-a07f-e611cb83a5c1@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T011000Z
+DTEND:20261129T015000Z
+SUMMARY:時雨堂コトハジメ — voluntas
+LOCATION:Track A
+DESCRIPTION:登壇者: voluntas\nhttps://fortee.jp/yapc-tokyo-2026/proposal
+ /a0b33936-8100-4fa0-a07f-e611cb83a5c1\n\n時雨堂の 13 年とこれか
+ らについてお話しします。 Gist にて公開している「時
+ 雨堂コトハジメ」の YAPC 版です。\n時雨堂の経営に関し
+ て登壇して話すというのは、これで最初で最後だと思
+ います。\n\n時雨堂コトハジメ\nhttps://gist.github.com/voluntas
+ /8183054
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/a0b33936-8100-4fa0-a07f-e611
+ cb83a5c1
+END:VEVENT
+BEGIN:VEVENT
+UID:6e17c376-6460-4fa7-bb63-1cf656e506ed@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T011000Z
+DTEND:20261129T013000Z
+SUMMARY:Perl on Ruby → Ruby on Python → Python on Perl → ... — make
+ nowjust
+LOCATION:Track B
+DESCRIPTION:登壇者: makenowjust\nhttps://fortee.jp/yapc-tokyo-2026/propo
+ sal/6e17c376-6460-4fa7-bb63-1cf656e506ed\n\nWebAssemblyにコンパイル
+ することで、WebAssemblyランタイムがあれば環境に依存せ
+ ず実行できるバイナリが得られます。\nそして、Perl (zer
+ operl) やRuby (ruby.wasm) など様々なプログラミング言語がWe
+ bAssemblyへのコンパイルをサポートしています。\n\nそれ
+ では、WebAssemblyバイナリを様々なプログラミング言語の
+ ソースコードに変換することができたとしたらどうで
+ しょうか？\n例えば、zeroperlをRubyのソースコードに変換
+ することで、Rubyで書かれたPerlランタイムが手に入るわ
+ けです。\nそして、それはこんな風にRubyから利用でき
+ ます。\n\n```ruby\nrequire_relative "zeroperl"\n\nperl = Zeroperl.new(\
+ n  { "env" => { "call_host_function" => ->(_\, _\, _) { 0 } } }\,\n  preop
+ ens: { "/dev/null" => "/dev/null" }\,\n)\nperl.invoke("_initialize")\nperl
+ .invoke("zeroperl_init")\n\nprogram = 'printf("Hello\, %s!\\n"\, "YAPC::To
+ kyo")\;' "\\0"\nptr = perl.invoke("malloc"\, program.bytesize)\nperl.memor
+ y.init(ptr\, program\, 0\, program.bytesize)\nperl.invoke("zeroperl_eval"\
+ , ptr\, 0\, 0\, 0)\nperl.invoke("zeroperl_flush")  # => Hello\, YAPC::Toky
+ o!\n```\n\n同様に、ruby.wasmをPythonのソースコードに変換す
+ ればPythonで書かれたRubyランタイムが手に入ります。\n
+ あるプログラミング言語のランタイムを別の言語から
+ 簡単に利用できるようになるわけです。\n\nこれは絵空
+ 事でしょうか？　そんなことはありません。\n[dewasm](htt
+ ps://github.com/dewasm/dewasm)であれば、wasmファイルをRubyやPyt
+ hon、そして **Perl** のソースコードに変換できます。\n\n
+ 今回の発表ではdewasmをなぜ・どのようにして開発した
+ のか、dewasmの活用例、そして中間表現としてのWebAssembly
+ の可能性について掘り下げていきます。\n\n**発表内容 (
+ 予定)**:\n\n- WebAssemblyとは？\n- dewasmで何ができるのか\n- 
+ dewasmの仕組み\n- テストの設計 (wasm\, wasiのテストスイー
+ トについて)\n- dewasmを使ったライブラリを公開するには
+ \n- dewasmの課題 (サイズ・パフォーマンスの問題)\n- WebAss
+ emblyの可能性について
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/6e17c376-6460-4fa7-bb63-1cf6
+ 56e506ed
+END:VEVENT
+BEGIN:VEVENT
+UID:710b33c4-c851-4e5b-9a0f-7faf125f4c32@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T011000Z
+DTEND:20261129T013000Z
+SUMMARY:SIMカードの遊びかた。〜自宅を通信事業者にして
+ みた〜 — Yuto Shimizu
+LOCATION:Track C
+DESCRIPTION:登壇者: Yuto Shimizu\nhttps://fortee.jp/yapc-tokyo-2026/prop
+ osal/710b33c4-c851-4e5b-9a0f-7faf125f4c32\n\n普段、私は業務でSIM
+ カードの設計や調達をしています。\n今回は、そんな自
+ 分にとって身近なSIMについて、誰でも買える市販のカ
+ ードを利用して遊んでみました。\n自宅に認証サーバを
+ 立ててSIMをWi-fi認証に利用したり、SIMの認証コマンドの
+ 応答からSSH鍵を作ったり、最後には自作のJava Cardアプ
+ レットを載せたりしてみます。\n\nこうしたちょっとだ
+ け変わったSIMの使い方を通して、普段はあまり意識す
+ ることのないモバイル通信における認証の仕組みや、SI
+ Mカードがどのような役割を担っているのかについても
+ 、分かりやすく紹介します。\n\n◯ お話しすること\n* SI
+ Mの中身を覗き、SIM認証の仕組みについて紹介します\n* 
+ 誰でも試せる遊び方として、Wi-Fi認証・SSH認証・Java Card
+ アプレットのインストールを紹介します\n* SIMの中では
+ 何が秘密になっていて、通信事業者は何を知っている
+ のかを簡単に紹介します\n\n◯ 想定する聴衆\n* SIMやス
+ マートカードを触ったことがない方を想定しています
+ 。SIMの知識は前提としません。\n* カードリーダーと入
+ 手可能なSIMカードがあれば、自宅でも同じように試せ
+ ます。\n* 「SIMって携帯電話に挿す以外にもこんな遊び
+ 方ができるんだ」と思ってもらえるような話を目指し
+ ます。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/710b33c4-c851-4e5b-9a0f-7faf
+ 125f4c32
+END:VEVENT
+BEGIN:VEVENT
+UID:51cfb7f0-fda3-4594-92e9-8e0ad53e7922@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T013000Z
+DTEND:20261129T013500Z
+SUMMARY:転換
+LOCATION:Track B
+END:VEVENT
+BEGIN:VEVENT
+UID:f1db52f6-003a-49e4-aa85-6f0b38af52eb@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T013000Z
+DTEND:20261129T013500Z
+SUMMARY:転換
+LOCATION:Track C
+END:VEVENT
+BEGIN:VEVENT
+UID:e9f57928-dcfc-42b8-b2da-d00e17d03a58@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T013500Z
+DTEND:20261129T015500Z
+SUMMARY:Perl でコンテナランタイムは書けるのか？ — Ayako 
+ Hayasaka
+LOCATION:Track B
+DESCRIPTION:登壇者: Ayako Hayasaka\nhttps://fortee.jp/yapc-tokyo-2026/pr
+ oposal/e9f57928-dcfc-42b8-b2da-d00e17d03a58\n\nPerl では、syscall() と
+  pack() が言語組み込みで利用できます。これなら、低レ
+ イヤコンテナランタイム実装のようなシステムプログ
+ ラミングもできるのではないでしょうか？\n本セッショ
+ ンでは、筆者が実際に動作する低レイヤコンテナラン
+ タイムを Perl で自作してみた経験を、Perl だからこそで
+ きた実装・Perl であるからこそ必要になった Hack を含め
+ て紹介します。\n\n## 話すこと\n- コンテナランタイムが
+ 行うざっくりとした処理の流れ\n- syscall() でカーネルの
+ システムコールを直接呼ぶ例\n- C interoperability の基本〜
+ 応用例\n- Perl らしい書き方が活きる場面\n- Perl で書い
+ たことにより発生した問題とその回避策\n- 既存コンテ
+ ナランタイムとの比較 (起動オーバーヘッドを含む性能
+ 面)\n\n## 対象者\n- 低レイヤプログラミングや、Perl の新
+ しい活用領域に興味がある方\n- Perl で C の関数を呼び
+ 出す際の選択肢や tips を知りたい方
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/e9f57928-dcfc-42b8-b2da-d00e
+ 17d03a58
+END:VEVENT
+BEGIN:VEVENT
+UID:13045f11-10d0-4338-8d6b-609eeba57cb1@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T013500Z
+DTEND:20261129T015500Z
+SUMMARY:変なものを作ろう：PHPで実装したIPルーターはど
+ こまで速くなるのか — 市川
+LOCATION:Track C
+DESCRIPTION:登壇者: 市川\nhttps://fortee.jp/yapc-tokyo-2026/proposal/1
+ 3045f11-10d0-4338-8d6b-609eeba57cb1\n\n「普通は作らないもの」
+ をあえて作ってみると、普段はOSやライブラリに隠れて
+ いるプロトコルの仕組みが見えてきます。\n\n私は今ま
+ でにPHPでHTTPS(TLS)プロトコル、TCP/IPプロトコルを実装し
+ てきました。\nPHPでTCP/IPを実装？と思うかもしれません
+ が、意外とPHPでも下の層のプロトコルが自作できます
+ 。\n\n今回はPHPのSocket機能を使って簡単なIPルーターを
+ 自作する方法を解説します。\n異なるネットワークのホ
+ スト同士がどのように通信するのか、それをルーター
+ としてどう処理するのか。\nPHPを使うことでこの処理の
+ 理解がしやすく、C言語よりは手軽に自作ルーターが体
+ 験できます。\nPHPでもPerlでもOSのsocketの仕組みを利用す
+ るため、本セッションではPHP以外の言語でも活用でき
+ る内容にします。\n\nこのセッションを通して次のこと
+ が学べます\n- IPアドレスとイーサネットとの関係\n- MAC
+ アドレスの役割\n- パケットを転送する仕組み\n- ネット
+ ワークプログラミング\n- LinuxなどOSが提供するsocket機能
+ の役割\n\n自作したルーターを使ってスループット計測
+ をし、地道なチューニングを繰り返すことで\n当初400Kbp
+ s程度だったスループットが3Gbpsを超えるまでになりま
+ した。\nその時のボトルネックと解決方法も解説します
+ 。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/13045f11-10d0-4338-8d6b-609e
+ eba57cb1
+END:VEVENT
+BEGIN:VEVENT
+UID:b3ecc5c3-12ef-4ecb-8b53-249d13423bac@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T015000Z
+DTEND:20261129T020500Z
+SUMMARY:休憩
+LOCATION:Track A
+END:VEVENT
+BEGIN:VEVENT
+UID:2ee39770-5402-4505-83cb-7dad7e382d2e@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T015000Z
+DTEND:20261129T020500Z
+SUMMARY:休憩
+LOCATION:ハンズオン
+END:VEVENT
+BEGIN:VEVENT
+UID:6b1eadb7-3041-4d0e-9f63-3e17a4df1a9a@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T015500Z
+DTEND:20261129T020500Z
+SUMMARY:休憩
+LOCATION:Track B
+END:VEVENT
+BEGIN:VEVENT
+UID:877cd291-e78c-447d-834e-f62dbc799bb8@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T015500Z
+DTEND:20261129T020500Z
+SUMMARY:休憩
+LOCATION:Track C
+END:VEVENT
+BEGIN:VEVENT
+UID:bb192b30-deaf-4b69-ad89-f1251c7d9780@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T020500Z
+DTEND:20261129T024500Z
+SUMMARY:サービスも新規開発も止めない大規模アカウント
+ 基盤のリプレイス — 佐藤 / 小室
+LOCATION:Track A
+DESCRIPTION:登壇者: 佐藤 / 小室\nhttps://fortee.jp/yapc-tokyo-2026/p
+ roposal/bb192b30-deaf-4b69-ad89-f1251c7d9780\n\nニンテンドーアカ
+ ウントは、Nintendo Switch 2やNintendo Switch、スマートフォン
+ 向けアプリなど、任天堂が提供する様々なサービスを
+ 利用するためのアカウント基盤です。\n2015年のリリー
+ ス以降、現在164の国・地域で展開され、4億を超える数
+ のアカウント (2025年9月末時点) を支えるほどの大規模
+ なアカウント基盤に成長しました。\nこのアカウント基
+ 盤は Perl で実装され、長年にわたりニンテンドーアカ
+ ウントの成長を支え続けてきました。現在は私たちニ
+ ンテンドーシステムズが開発・運用を行っています。\n
+ \nしかし、サービス拡大に伴う新機能の実装を含むシス
+ テム改修の積み重ねによって、徐々に理解容易性、変
+ 更容易性の低下などの課題が生じてきました。そこで
+ 現在、仕様の整理とアプリケーションの再設計を伴う J
+ ava の新たなアプリケーション基盤へのリプレイスを実
+ 施しています。\n\n本セッションでは、日々の新規開発
+ を続けながら、アカウント基盤を一切停止させず、メ
+ ンテナンスなしで安全にリプレイスを行うための取り
+ 組みをご紹介します。\n\n以下のような内容をお話しす
+ る予定です。\n\n- PerlからJavaへのリプレイスが発足した
+ 背景\n- リプレイスの流れと戦略\n- 新規開発を止めない
+ ための段階的移行\n- アプリケーション再設計がなぜ必
+ 要になりどのような選択をしたのか\n- リプレイス前後
+ の互換性を保証するための仕組み\n- 新規開発もリプレ
+ イスも同時に進行させるためのプロジェクト管理\n\n本
+ セッションを通して、大規模かつミッションクリティ
+ カルなシステムを安全に刷新するための実践的な知見
+ を共有します。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/bb192b30-deaf-4b69-ad89-f125
+ 1c7d9780
+END:VEVENT
+BEGIN:VEVENT
+UID:10771df2-bcf7-4e40-961c-4e94b6bee047@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T020500Z
+DTEND:20261129T024500Z
+SUMMARY:HTTPの更なる高速化を支える新しい輻輳制御技術 
+ — 奥一穂
+LOCATION:Track B
+DESCRIPTION:登壇者: 奥一穂\nhttps://fortee.jp/yapc-tokyo-2026/proposa
+ l/10771df2-bcf7-4e40-961c-4e94b6bee047\n\nHTTPをはじめ、インター
+ ネットを介する通信の速度は、利用可能な帯域を公平
+ に分割共有するためのアルゴリズムである「輻輳制御
+ 」によってコントロールされています。従来、輻輳制
+ 御はTCPとともにカーネル内に実装され、すべてのプロ
+ セスで同一の方式を使うのが一般的でした。しかし、
+ 近年普及しつつあるHTTP/3では、トランスポート層(QUIC)
+ から輻輳制御、そしてHTTPプロトコルまでの全てをHTTPラ
+ イブラリとして一体で実装します。この結果、カーネ
+ ル側での改善を待たずとも、HTTPの特性にあわせた輻輳
+ 制御を研究開発し実装することが現実的になりました
+ 。\nHTTP通信で大切な指標は、レスポンスの先頭を受信
+ するまでの時間(TTFB）と末尾までの時間(TTLB)です。QUIC
+ が通信確立にかかる時間を極小化しTTFBを削減した一方
+ 、TTLBの削減は輻輳制御の改善にかかっています。\n本
+ トークでは、輻輳制御の基本的な概念と設計制約には
+ じまり、現在一般的な手法であるSlow Start/CUBICを紹介し
+ ます。ついで、発表者らが提案し運用している「Rapid St
+ art」と「CUBACK」が、諸々の制約を満たしつつどのよう
+ にTTLBを改善しているか、運用で得られた数値とともに
+ 解説します。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/10771df2-bcf7-4e40-961c-4e94
+ b6bee047
+END:VEVENT
+BEGIN:VEVENT
+UID:9bb38a9c-ee76-4032-b1a3-a54e6df7639c@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T020500Z
+DTEND:20261129T024500Z
+SUMMARY:レトロゲームエミュレータ作りの嗜み — bokuweb
+LOCATION:Track C
+DESCRIPTION:登壇者: bokuweb\nhttps://fortee.jp/yapc-tokyo-2026/proposal/
+ 9bb38a9c-ee76-4032-b1a3-a54e6df7639c\n\n生成AIに聞けば、レトロ
+ ゲームエミュレータの実装もさほど時間を要さずに完
+ 成する時代となってきました。\nそんな今、自分の手で
+ ゲーム機のエミュレータを作る意味はどこにあるので
+ しょうか。\n\n私はこれまでファミコン、ゲームボーイ
+ 、ゲームボーイアドバンスのエミュレータを自作して
+ きました。実際に作ってみると、CPUの命令を実装する
+ だけではゲームは動きません。6502系CPU、LR35902、ARM7TDMI
+ という異なるCPUを起点に、メモリマップ、割り込み、
+ タイマー、描画、入力、DMA、カートリッジなど、独立
+ して見える仕組みを理解し、正しいタイミングでつな
+ ぎ合わせて、ようやく一本のゲームが動き始めます。\n
+ \n本トークでは、3世代のゲーム機、その中でもゲーム
+ ボーイアドバンスをメイン題材に、エミュレータの基
+ 本的なアーキテクチャ、実装で特に大変だったことや
+ 楽しかったことを紹介できればと思います。\n合わせて
+ 、先人たちが残してきた解析資料、ドキュメント、テ
+ ストROMなどの偉業にも目を向けます。エミュレータ開
+ 発は、何十年にもわたるハッカーたちの知恵の積み重
+ ねの上に成り立っています。\n\nAIは実装を大きく助け
+ てくれます。それでも、なぜその1行が必要なのかを理
+ 解し、仮説を立て、少しずつ動くものを組み上げ、最
+ 後にゲームが起動した瞬間の喜びは、自分で作ってみ
+ なければ味わえません。\n\nエミュレータ開発を入り口
+ に、コンピュータ歴史とそれが動く仕組みを知る面白
+ さ、先人の知恵を読み解く楽しさ、そしてAI時代だから
+ こそ「学び、知り、作る」ことの価値を共有します。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/9bb38a9c-ee76-4032-b1a3-a54e
+ 6df7639c
+END:VEVENT
+BEGIN:VEVENT
+UID:f906a131-006c-4cfd-9c3c-e04013310f2d@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T020500Z
+DTEND:20261129T030500Z
+SUMMARY:Transformer をあなたの言語で ― 60分で書く LLM 推論
+ 、 Transformer 道場 — riywo
+LOCATION:ハンズオン
+DESCRIPTION:登壇者: riywo\nhttps://fortee.jp/yapc-tokyo-2026/proposal/f9
+ 06a131-006c-4cfd-9c3c-e04013310f2d\n\n「LLM はブラックボックス
+ として使うしかなくて、中がどうなっているのか何も
+ 分からない」 「Attention の解説は読んで図も何度も見た
+ 。それでも、結局何が起こってるのかイマイチ分から
+ ない」 そんな感覚のまま、 LLM を毎日使っていないで
+ しょうか。\n\n実は Transformer (Attention を中心にした機械
+ 学習モデル) の言語モデルの推論そのものは、驚くほど
+ 短い算術の列です。行列積、 RMSNorm、 Softmax、 RoPE、MLP
+ 、そして Attention。学習とは違って、微分も最適化も出
+ てきません。\n\n今回のハンズオンでは、上記の要素を
+ それぞれ簡単に解説した後に、参加者がそれぞれ好き
+ な言語を使って実在する 15M パラメータのモデルを動か
+ す Transformer の推論エンジンをゼロから書きます。 使用
+ する言語は Perl でも何でも構いません。こちらが用意
+ するのは、エージェントスキルと言語に依存しないテ
+ ストスイートと学習済みの重みだけで、あとはご自身
+ のコーディングエージェントを駆使して実装してもら
+ います。\n\n最後まで作りきると、自分のコードから自
+ 然言語が生成されることが確かめられます。早く完走
+ した人には、 KV キャッシュによる高速化や top-p サンプ
+ リングの実装といった発展課題も用意します。\n\n持ち
+ 帰れること:\n- Transformer を作ってみたという実績\n- Trans
+ former の構成要素への一歩踏み込んだ理解\n\n想定する参
+ 加者:\n- コーディングエージェントを使ったソフトウェ
+ ア開発ができる方なら誰でも楽しめます。\n- プログラ
+ ミング言語は問いません。GPU も不要です。\n- 機械学習
+ や、高度な数学の知識も不要です。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/f906a131-006c-4cfd-9c3c-e040
+ 13310f2d
+END:VEVENT
+BEGIN:VEVENT
+UID:4494d2c1-aaa2-449f-aaf4-9d092e69b787@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T020500Z
+DTEND:20261129T030500Z
+SUMMARY:Parser蠱毒
+LOCATION:踊り場
+DESCRIPTION:登壇者: ydah
+END:VEVENT
+BEGIN:VEVENT
+UID:b5b80f8a-ba1b-4e5c-9f04-ef858cc2af51@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T024500Z
+DTEND:20261129T025000Z
+SUMMARY:転換
+LOCATION:Track A
+END:VEVENT
+BEGIN:VEVENT
+UID:46528e95-f00b-43d2-91f1-864a9290b479@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T024500Z
+DTEND:20261129T025000Z
+SUMMARY:転換
+LOCATION:Track B
+END:VEVENT
+BEGIN:VEVENT
+UID:11558ac2-e13b-47ab-abe3-3ce9a62abda2@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T024500Z
+DTEND:20261129T025000Z
+SUMMARY:転換
+LOCATION:Track C
+END:VEVENT
+BEGIN:VEVENT
+UID:0aaf2234-0157-4b27-97f7-883c4bdcf917@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T025000Z
+DTEND:20261129T031000Z
+SUMMARY:「何req/s耐えた」で終わらせない — 事業の成長と
+ つなげる負荷テスト — チャン ヒエイカザト
+LOCATION:Track A
+DESCRIPTION:登壇者: チャン ヒエイカザト\nhttps://fortee.jp/yapc
+ -tokyo-2026/proposal/0aaf2234-0157-4b27-97f7-883c4bdcf917\n\n長くサー
+ ビスを運営していると、避けて通れないのがシステム
+ の負荷問題です。\n\n「事業計画が想定する成長を、今
+ のシステムは受け止められるのか？」\n「ユーザーやア
+ クセスが増えたとき、どこが最初に限界を迎えるのか
+ ？」\n\nこうした問いに向き合うことになり、決済サー
+ ビスで負荷テストに取り組み始めました。実際に進め
+ てみて感じたのは、難しいのは負荷をかけることより
+ も、その前後にある意思決定でした。\n\n- 数百あるAPI
+ のうち、どれを・どんな重みで叩けば「本番と同じ形
+ 」の負荷になるのか\n    - 本番トラフィックの実測から
+ 、量と重さの2軸で30本強に絞り込む\n- 「本番相当のデ
+ ータ」をどう用意するか\n    - ステージングのデータは
+ 本番の何割か・分布の形は同じかを実測し、足りない
+ 分だけを合成する。さらに事業計画から「◯年後相当
+ 」のデータ量も作る\n- 何をもって「耐えられる」と判
+ 断するのか\n    - エラー率・レイテンシ・DB CPUによる限
+ 界の定義と、req/sを「ユーザー何万人分か」へ翻訳して
+ 事業計画と突き合わせるレポーティング\n\n本セッショ
+ ンでは、負荷テストをサービスの「健康診断」と捉え
+ 、シナリオ導出 → テストデータ準備 → 限界測定 → 
+ 事業へのレポーティングまでの取り組みを、実際の判
+ 断や実測値とともに紹介します。\n\nまた、これらを精
+ 度高くスピーディに進めるため、本番トラフィックの
+ 分析、データ分布の検証、テストデータ生成やシナリ
+ オコードの作成、結果のドキュメント化など、多くの
+ 工程でAIを活用しました。\n\n「何req/s耐えた」で終わら
+ せず、今のサービスにどれだけ余力があり、次の挑戦
+ のどこに備えるべきか。\nこれから負荷テストを計画す
+ る方に、判断の順番や物差しの一例として何か持ち帰
+ っていただけたら嬉しいです。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/0aaf2234-0157-4b27-97f7-883c
+ 4bdcf917
+END:VEVENT
+BEGIN:VEVENT
+UID:6eddb298-1cf1-48e4-b18e-4a257943474e@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T025000Z
+DTEND:20261129T031000Z
+SUMMARY:次世代動画配信プロトコルMedia over QUICは何を変え
+ 、何を変えていないのか — yuorei
+LOCATION:Track B
+DESCRIPTION:登壇者: yuorei\nhttps://fortee.jp/yapc-tokyo-2026/proposal/6
+ eddb298-1cf1-48e4-b18e-4a257943474e\n\nMedia over QUIC（MoQ）は、QUIC
+ の上に構築された次世代の動画配信プロトコルで、IETF
+ で標準化が進んでいます。低遅延と大規模配信を両立
+ させる設計として注目されていますが、その核心であ
+ る「Group」という単位は、動画配信で長年向き合われて
+ きた「GOP（キーフレーム間隔）」の設計判断と驚くほ
+ ど重なって見えます。\n\n本トークでは、MoQを実際に動
+ かし、relayのログや実測データを一次情報として使いな
+ がら検証します。まず、HLSのセグメント長が実は「CDN
+ キャッシュ単位」「ABR切替点」「GOP境界」「破棄・再
+ 送単位」という4つの独立した意思決定を同時に決めて
+ しまっている構造を明らかにします。そのうえで、MoQ
+ のGroup/Track/Priorityという設計が、この4つのうちどこを
+ 本当に分離できていて、どこができていないのかを、
+ 実測データとともに技術的に検証します。\n\n標準化状
+ 況、依存パッケージの成熟度、運用上の実測課題（UDP
+ バッファチューニングなど）も踏まえ、「MoQは配信の
+ 何を変え、何を変えていないのか」を技術的に解剖し
+ 、今どんな場面で使うべきかまで示します。動画配信
+ に馴染みがない方にも、基礎から順を追って説明しま
+ す。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/6eddb298-1cf1-48e4-b18e-4a25
+ 7943474e
+END:VEVENT
+BEGIN:VEVENT
+UID:70842adc-f0ed-4c2d-8d18-c438f9b5e9d1@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T025000Z
+DTEND:20261129T031000Z
+SUMMARY:ファミコン音源をコードで再現する — 5hun
+LOCATION:Track C
+DESCRIPTION:登壇者: 5hun\nhttps://fortee.jp/yapc-tokyo-2026/proposal/708
+ 42adc-f0ed-4c2d-8d18-c438f9b5e9d1\n\nファミコンのBGMは、矩形波
+ ・三角波・白色雑音などの、ごくわずかな種類の波形
+ の組み合わせのみで作られていました。\nそれにもかか
+ わらず、当時のクリエイターたちはこの限られた音を
+ 組み合わせ、数多くの名曲を生み出しています。\n限ら
+ れた素材の一つ一つを組み合わせて作品を織り上げる
+ という点で、まさにパッチワークの完成形の一つと呼
+ べると思います。\n\n本トークでは、矩形波・三角波・
+ 白色雑音それぞれの波形の特徴（倍音構成の違いなど
+ ）を解説したうえで、波形データを計算する方法をサ
+ ンプルコードとともに紹介します。\nさらに、それらを
+ 組み合わせることでどんな音楽を奏でられるかを実演
+ します。\nRubyの特別な機能は使わないため、他の言語
+ でも同様に再現可能です。\n\nまた、発表者は趣味で楽
+ 器を演奏しており、再現したファミコン音源に合わせ
+ て生演奏する合奏デモも行いたいと思います。\nここで
+ しか聞くことのできない音楽を、ぜひお楽しみくださ
+ い！
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/70842adc-f0ed-4c2d-8d18-c438
+ f9b5e9d1
+END:VEVENT
+BEGIN:VEVENT
+UID:85942a71-ef91-42a3-a72c-f2eb2cb4be0d@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T030500Z
+DTEND:20261129T031000Z
+SUMMARY:間
+LOCATION:ハンズオン
+END:VEVENT
+BEGIN:VEVENT
+UID:6f10c9cd-b7bb-4d29-9696-40fa94eb3d49@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T031000Z
+DTEND:20261129T042500Z
+SUMMARY:ランチ休憩
+LOCATION:Track A
+END:VEVENT
+BEGIN:VEVENT
+UID:8ffdfdd8-b10e-48da-871d-333fba77b5b6@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T031000Z
+DTEND:20261129T042500Z
+SUMMARY:ランチセッション
+LOCATION:Track B
+END:VEVENT
+BEGIN:VEVENT
+UID:fdd80974-8bd9-43e3-a8ff-a0e196cac812@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T031000Z
+DTEND:20261129T042500Z
+SUMMARY:ランチセッション
+LOCATION:Track C
+END:VEVENT
+BEGIN:VEVENT
+UID:76ee4c13-da17-4749-a2e2-a32824505c25@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T031000Z
+DTEND:20261129T042500Z
+SUMMARY:ランチ休憩
+LOCATION:ハンズオン
+END:VEVENT
+BEGIN:VEVENT
+UID:b834c1b7-2587-4f68-9fbe-1c053f6576a0@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T031000Z
+DTEND:20261129T042500Z
+SUMMARY:Day 1 最速振り返り
+LOCATION:踊り場
+DESCRIPTION:登壇者: Takafumi ONAKA
+END:VEVENT
+BEGIN:VEVENT
+UID:25a5e2f0-9ec1-4870-b5fe-aad8a8fcfbb9@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T042500Z
+DTEND:20261129T050500Z
+SUMMARY:GUEST: Larry Wall (AMA)
+LOCATION:Track A
+END:VEVENT
+BEGIN:VEVENT
+UID:7cdc2bdd-e6c6-4f9c-8e71-82a989143b5d@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T042500Z
+DTEND:20261129T050500Z
+SUMMARY:開発者50人/10万commit超の共有リポジトリを分離す
+ るまで ― 「認知負荷を減らし、機会を増やす」テック
+ リードの技術戦略 — miyamu
+LOCATION:Track B
+DESCRIPTION:登壇者: miyamu\nhttps://fortee.jp/yapc-tokyo-2026/proposal/7
+ cdc2bdd-e6c6-4f9c-8e71-82a989143b5d\n\n「テックリードって何！
+ ？！？」――約2年前、とあるプロダクトのテックリー
+ ドに任命された私の叫びです。\n当初、役割が曖昧で何
+ をすべきか分からないところから、EMやPdMや開発チーム
+ との対話を積み重ねました。\n不確実で大規模なプロダ
+ クトに対してブレない役割を持つには「ビジョン」が
+ 必要だ。そう考えて行き着いたのが「認知負荷を減ら
+ し、機会を増やす」というビジョンでした。\n\n認知負
+ 荷には2種類あります。\n問題の本質的な複雑さに向き
+ 合う「課題内在性認知負荷」と、環境や設計に起因す
+ る不要な「課題外在性認知負荷」です。\n考え抜いた結
+ 果、後者を取り除き、前者に集中できる状態を目指す
+ 技術戦略を組み立てました。\n減らした認知負荷は、そ
+ のまま「機会」に変わります。これは開発者の自己満
+ 足ではなく、開発生産性、プロダクト価値、そして開
+ 発への継続投資へと繋がる正のサイクルの起点です。\n
+ \n前半では、役割の言語化からビジョン策定まで、そし
+ てこのサイクルを踏まえた技術戦略の組み立てについ
+ てお話しします。\n\n後半では、その戦略を実行に移し
+ た最大の具体例「開発者50人/10万commit超の共有リポジト
+ リ分離」についてお話しします。この共有リポジトリ
+ がどのように「課題外在性認知負荷」を増大させ、ど
+ のような問題を引き起こしていたのか。\nそして、なぜ
+ 分離を決断し、どのような戦略で進め、分離後にどの
+ ような変化が生まれたのかを紹介します。\n併せて、10
+ 万commitを超える巨大リポジトリを `git push --mirror` など
+ を駆使して移行した、技術的な実践知も共有します。\n
+ \nプロダクトの中長期的な技術戦略に悩む方々、少しず
+ つでも積み重ねて今の環境を改善したいと切望してい
+ る方々に、「認知負荷」の視点で技術戦略を組み立て
+ るヒントと、その実例をお届けできれば幸いです。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/7cdc2bdd-e6c6-4f9c-8e71-82a9
+ 89143b5d
+END:VEVENT
+BEGIN:VEVENT
+UID:4359647a-043e-40c1-9cf8-6affc69e18a9@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T042500Z
+DTEND:20261129T044500Z
+SUMMARY:No Review で実現する高速開発 ― レビューをする領
+ 域・しない領域 — toshimaru
+LOCATION:Track C
+DESCRIPTION:登壇者: toshimaru\nhttps://fortee.jp/yapc-tokyo-2026/proposa
+ l/4359647a-043e-40c1-9cf8-6affc69e18a9\n\n私のチームでは、新機
+ 能開発の一部の変更について、コードレビューの必須
+ 化をやめました。\n\nこれにより開発サイクルの「人間
+ のレビュー待ち」というボトルネックを解消すること
+ ができ、開発速度が劇的に向上しました。一方で、リ
+ リース前の QA で重大なバグが見つかることはありませ
+ んでした。すなわち品質を犠牲に開発を高速化したわ
+ けではありません。\n\n本トークでは、品質を保ちつつ
+ 、高速開発を実現するための No Review 運用の取り組みを
+ ご紹介いたします。\n\n## 話すこと\n\n- なぜ No Review 運
+ 用を始めたのか？\n- なんのコードレビューを外すのか
+ ？ ― コードレビューを外した領域・外さなかった領域
+ \n- なぜ No Review 運用でも成立するのか？ ― No Review を
+ 支える文化・ AI による一次レビュー\n- No Review 運用の
+ 結果 ― 開発速度と品質への影響\n\n## 話さないこと\n\n-
+  コードレビューという行為そのものの否定\n- 特定の AI
+  レビューツールの比較・優劣\n\n## 対象者\n\n- レビュー
+ 待ちがリードタイムのボトルネックになっているチー
+ ム\n- 開発サイクルをもっと高速に回したい方\n- チーム
+ の開発プロセスを設計・改善する立場にある方（テッ
+ クリード / EM など）
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/4359647a-043e-40c1-9cf8-6aff
+ c69e18a9
+END:VEVENT
+BEGIN:VEVENT
+UID:ebb3f621-d1e2-43cb-96f6-35a5b22c67c9@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T044500Z
+DTEND:20261129T045000Z
+SUMMARY:転換
+LOCATION:Track C
+END:VEVENT
+BEGIN:VEVENT
+UID:ebf15902-c008-419e-99fb-681c412ab2a0@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T045000Z
+DTEND:20261129T051000Z
+SUMMARY:品質保証のその先へ —Question Askerとしてのバリュ
+ ーの出し方 — piro-chan
+LOCATION:Track C
+DESCRIPTION:登壇者: piro-chan\nhttps://fortee.jp/yapc-tokyo-2026/proposa
+ l/ebf15902-c008-419e-99fb-681c412ab2a0\n\nQuestion Askerとは、アジャ
+ イルテスティングについて書かれた名著『Agile Testing Con
+ densed』（Janet Gregory、Lisa Crispin 著）の中で紹介された概
+ 念であり、QAは品質保証の担当でありながら、鋭い洞察
+ 力をもとにチームに問いを投げかける「Question Asker」の
+ 役割も担っている、といった意味が込められた言葉で
+ す。\n\nAIが進化し続ける現在、開発技術だけでなくソ
+ フトウェアテストの領域も、人間のQAだけが持っている
+ 専門性ではなくなってきています。そのように職能ご
+ との境界が溶けゆく状況の中、QAエンジニアが製品の価
+ 値を高めるために求められることは何なのか。\n\n新規
+ 事業の立ち上げからQAとして携わった私は、この壁に直
+ 面することになりました。\n全てが仮説の状態で品質を
+ 高めるためには、プロジェクトの中にある目に見えな
+ いリスクを拾い上げ、チームのものにして1つ1つ取り除
+ いていくことが必要でした。\n\n製品のグランドローン
+ チを迎えた今、こうした自分の動きを振り返って、\n「
+ Question Asker」という1つの軸で抽象化できそうだと考え
+ ています。\n自らがリアルに体験したQAエンジニアの役
+ 割の変革について、具体例を交えてお話します。\n\n【L
+ earning Outcome】\n対象\n- AI時代の自らの役割について模索
+ しているQAエンジニアの方\n- チームでプロダクトの価
+ 値を上げていくためにQAと協力したい開発エンジニアの
+ 方\n- QAにどのような役割・期待値を与えるか悩んでい
+ るエンジニアリングマネージャーの方\n\n得られるもの\
+ n- テストだけに留まらない、QAエンジニアがプロダクト
+ の価値を高めるための考え方や実際の動き方\n- AIと人
+ 間それぞれの得意領域を踏まえた上での、QAエンジニア
+ が今後キャリアをどのように磨いていくべきか
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/ebf15902-c008-419e-99fb-681c
+ 412ab2a0
+END:VEVENT
+BEGIN:VEVENT
+UID:47bf3931-cc79-4c9d-8f48-8c13d85abcac@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T050500Z
+DTEND:20261129T052000Z
+SUMMARY:休憩
+LOCATION:Track A
+END:VEVENT
+BEGIN:VEVENT
+UID:9fb26a75-a833-49fd-a953-7a332979b1df@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T050500Z
+DTEND:20261129T052000Z
+SUMMARY:休憩
+LOCATION:Track B
+END:VEVENT
+BEGIN:VEVENT
+UID:3f8fed0a-253e-4680-94ad-be3b8e31ff32@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T050500Z
+DTEND:20261129T052000Z
+SUMMARY:休憩
+LOCATION:ハンズオン
+END:VEVENT
+BEGIN:VEVENT
+UID:5c96909e-a7a3-4361-94ad-0306c53b747a@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T051000Z
+DTEND:20261129T052000Z
+SUMMARY:休憩
+LOCATION:Track C
+END:VEVENT
+BEGIN:VEVENT
+UID:4b4ba620-537c-4748-9512-72bb5aaa86e7@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T052000Z
+DTEND:20261129T060000Z
+SUMMARY:日本の Web と標準化の距離 — Jxck
+LOCATION:Track A
+DESCRIPTION:登壇者: Jxck\nhttps://fortee.jp/yapc-tokyo-2026/proposal/4b4
+ ba620-537c-4748-9512-72bb5aaa86e7\n\n我々は Web 開発を行う際に
+ 、様々な標準技術を用いている。\nこの標準は、人間が
+ 議論を重ね、検証を重ね、失敗を重ねて積み上げてき
+ たものだ。\n仕様を読み、議論をし、実際に使い、フィ
+ ードバックをする。\nそのすべてのフェーズに、我々は
+ 様々な形で参加することができる。\nでは、我々はこの
+  "標準化" という営みの重要性を、本当に理解し、参加
+ し、活用できているだろうか？\nこと日本において、我
+ 々エンジニアは、本当に Web 標準 と "適切な距離" を取
+ ってこれたのだろうか？\n\n\n*このトークは Stand-up Tech T
+ alk です。資料はタイトル 1 枚だけ表示し、マイク一本
+ でトークします。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/4b4ba620-537c-4748-9512-72bb
+ 5aaa86e7
+END:VEVENT
+BEGIN:VEVENT
+UID:20c79066-e273-475f-afda-df620e9cd86a@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T052000Z
+DTEND:20261129T054000Z
+SUMMARY:自作言語で作った自作 CPU の上で自作 Ruby が動か
+ ない — 全部自分のコードのとき、どこを疑うか — 秒
+ 速284km
+LOCATION:Track B
+DESCRIPTION:登壇者: 秒速284km\nhttps://fortee.jp/yapc-tokyo-2026/propo
+ sal/20c79066-e273-475f-afda-df620e9cd86a\n\nこのトークの主題は、
+ 作ったものの紹介ではなく、不具合箇所として複数層
+ 疑えるときに疑う順番をどう決めるかという点と、推
+ 測を検査に変えるやり方になります。\n\n自作の言語で
+ 書いた CPU の上で、自作の Ruby 処理系が動いていました
+ 。CPU を 32 ビットから 64 ビットに広げたら、起動しな
+ くなりました。「puts 1 + 1」すら通りません。さて、ど
+ こを疑いますか。\n\nOCaml などと同じ ML 系の小さな自作
+ 言語を書き、そこから CPU が直接実行する機械語を出せ
+ るようにし、同じ言語でその CPU のエミュレータを書き
+ 、4 万行超の自作 Ruby 処理系をその上に載せました。3 
+ 層とも自分が書いています。64 ビットに広げたとき手
+ を入れたのは、機械語を出す側と動かす側の両方——14
+ 9 箇所の書き換えで、1 つのコミットではありません。\
+ n\n通常は、下の層から疑いません。フレームワークよ
+ り先にアプリを疑い、データベースより先にクエリを
+ 疑います。それでも切り分けが要るなら、層の境界を
+ テストします——層ごとに、単体で正しく動くかを確
+ かめます。\n\n実際、そうしていました。自作 Ruby 処理
+ 系は本家の Ruby と出力が一致。コンパイラが出す機械
+ 語は、同じプログラムを C 言語に変換して動かした結
+ 果と一致。CPU エミュレータは、同じ機械語を QEMU で走
+ らせた結果と一致。全部緑です。それでも動きません
+ 。\n\n境界のテストが保証するのは「試したプログラム
+ では一致する」ことであって、「その層が正しい」こ
+ とではありません。今回のバグは、どのテストも作ら
+ なかった条件の中にいました。なので 3 層とも残りま
+ す。自作の Ruby 処理系か、自作のコンパイラが出した
+ 機械語か、自作の CPU エミュレータか。\n\n私は原因の
+ 見当を 2 回つけて、2 回とも外しました。1 回目は直前
+ に自分が手を入れた場所、2 回目は前に一度壊れたこと
+ のある仕組みを疑いました。\n\n本当の原因にたどり着
+ いたのは、2 つのやり方でした。ひとつは、推測を検査
+ に変えることです。\n\n「コンパイラが、変数を置く場
+ 所を数え間違えている」という疑いがありました。コ
+ ンパイラは関数ごとに「変数を何個ぶん置けるか」を
+ 先に決めて場所を確保します。そこで、コンパイラ自
+ 身に検査を足し、確保した数と使った数が合わなけれ
+ ばコンパイルを止めるようにしました。すると止まり
+ 、疑いは当たっていました。ところが、直しても症状
+ は消えません。実在の欠陥でしたが、原因ではありま
+ せんでした。推測のままなら「直し方が悪かったのか
+ も」と迷い続けたはずです。検査は外れも確定させま
+ す。\n\nもうひとつは、print debug で追いかけるのをやめ
+ 、出来上がったプログラムそのものを読むこと。実行
+ 中の様子を出力させるコードを足すほど、結果は互い
+ に食い違っていきました。そこで観察をやめ、コンパ
+ イラが作った機械語を逆アセンブルしました。壊れて
+ いたのは、自作 Ruby が変数を探すのに使う値です。そ
+ れがどこから来ているのか、命令を 1 行読むだけで分
+ かりました。\n\n実行中の様子から推理していた答え「
+ メモリのどこかにある」は丸ごと誤りで、機械語には
+ 「CPU 自身が持っている置き場（レジスタ）から取る」
+ と書いてありました。\n\n原因は、例外を扱う仕組みの
+ 中にありました。失敗するかもしれない処理を試す前
+ に今の値を退避し、失敗したら書き戻します。よくあ
+ る作りです。退避には置き場所が要るので、仕組みは
+ メモリを一区画ぶん確保します。ところが、書き込ん
+ でいた先はその区画の外でした。区画の外はまだ誰に
+ も渡していない空き地なので、処理の途中でメモリが
+ 要求されるたびに払い出され、退避した値の上に書か
+ れます。書き戻したとき戻ってくるのは、自分が退避
+ した値ではなく、その空き地を後から受け取った別の
+ データでした。\n\n壊れていたのは 1 行です。退避先は
+ 「先頭から 20 バイト目」と書かれていたのに、32 ビッ
+ トと 64 ビットの両方に対応させる作業で、機械的な置
+ き換えがそれを「先頭から 20 個目」に変えていました
+ 。1 個が 8 バイトなので、区画のはるか外です。最初に
+ 疑った「直前に手を入れた場所」は方向としては合っ
+ ていました。それでも、どこをどう実測するかを決め
+ られなければ、直せないままだったはずです。\n\n疑い
+ を検査にして、「自分以外が判定できる形」に頼るこ
+ とが有効でした。\n\n3 層とも自分のコード、というの
+ は特殊に聞こえるかもしれません。でも、自分が書い
+ ていない層を跨ぐときも、「下の層は正しい」はやは
+ り仮定で、それが外れたときにやることは変わりませ
+ ん。このような実例をもとに、コンパイラ、CPU、言語
+ 処理系の知識は不要の前提でお話しします。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/20c79066-e273-475f-afda-df62
+ 0e9cd86a
+END:VEVENT
+BEGIN:VEVENT
+UID:5bce09d0-d55e-4ca9-a0cd-8cddb19c17e1@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T052000Z
+DTEND:20261129T054000Z
+SUMMARY:持続可能なコミュニティとは何か — 古川陽介
+LOCATION:Track C
+DESCRIPTION:登壇者: 古川陽介\nhttps://fortee.jp/yapc-tokyo-2026/prop
+ osal/5bce09d0-d55e-4ca9-a0cd-8cddb19c17e1\n\nNode学園祭からJSConf.jp
+ にいたるまで、10年以上のカンファレンスを一人でやり
+ 続けています。\n僕のコミュニティが全く持って持続可
+ 能なものであるとは思っておらず、YAPCなどの他のカン
+ ファレンスに比べたら全く持ってできていない小さな
+ ものであると思います。\nただいくつか伝えたいメッセ
+ ージがあります。\n\n1. 個人の思いだけでどこまで行け
+ るのかを試したいと思っていること\n2. 無理に大きなも
+ のにする必要はないと思っていること\n3. 裾野を広げる
+ のではなく、先を尖らせようと思っていること\n4. でき
+ ないことは人に任せようとしていること\n5. その結果、
+ お金が必要なこともあるので法人を持っている方が便
+ 利であること\n6. やめたくなったらいつでもやめようと
+ おもっていること\n\nなどなど、今挙げただけでも6つほ
+ どあります。全くまとまっていない情報ですが、自分
+ がJSConf.jpをやる理由と持続可能なコミュニティについ
+ ての話ができたら幸いです。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/5bce09d0-d55e-4ca9-a0cd-8cdd
+ b19c17e1
+END:VEVENT
+BEGIN:VEVENT
+UID:f38ef38f-9826-4b51-afaf-bd000556c74d@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T052000Z
+DTEND:20261129T070000Z
+SUMMARY:決勝戦  - コードゴルフコンテスト Anybatross 2026
+LOCATION:ハンズオン
+END:VEVENT
+BEGIN:VEVENT
+UID:b7c6c592-c3c9-478a-b178-d235510cf369@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T052000Z
+DTEND:20261129T070000Z
+SUMMARY:即席LTワークショップ — hitode909
+LOCATION:踊り場
+DESCRIPTION:登壇者: hitode909\nhttps://fortee.jp/yapc-tokyo-2026/proposa
+ l/b7c6c592-c3c9-478a-b178-d235510cf369\n\nYAPCの舞台で、飛び入り
+ 発表しませんか？hitode909があなたの発表を後押ししま
+ す！\n\n発表テーマの探し方、組み立て方、興味のある
+ ことの探し方など、YAPCで発表するのに必要なすべてを
+ お伝えします。\nワークショップ形式で、参加者の皆様
+ にはLT資料をその場で作っていただき、即席LT大会を開
+ 催します。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/b7c6c592-c3c9-478a-b178-d235
+ 510cf369
+END:VEVENT
+BEGIN:VEVENT
+UID:0939cee2-1027-4a32-a9c8-2e7abce6a69d@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T054000Z
+DTEND:20261129T054500Z
+SUMMARY:転換
+LOCATION:Track B
+END:VEVENT
+BEGIN:VEVENT
+UID:9b6e8b9a-4ecb-4a5d-b835-93b6f661e672@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T054000Z
+DTEND:20261129T054500Z
+SUMMARY:転換
+LOCATION:Track C
+END:VEVENT
+BEGIN:VEVENT
+UID:71ae6e0f-377e-4a64-8675-f980ccedb326@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T054500Z
+DTEND:20261129T060500Z
+SUMMARY:Yet Another Perl Computer は誰が作ってもよい ~ Z80 CPU で
+ 動く Perl VM を作る話 ~ — Yappo
+LOCATION:Track B
+DESCRIPTION:登壇者: Yappo\nhttps://fortee.jp/yapc-tokyo-2026/proposal/71
+ ae6e0f-377e-4a64-8675-f980ccedb326\n\n本セッションでは私がブラ
+ ウザ上で実装した Z80 コンピュータ上で実行可能な Perl 
+ 処理系を作った時の話をします。\nZ80 CPU と Perl の実行
+ モデルの違いを踏まえ、限られた CPU・メモリ上でどう 
+ Perl の処理系を組み立て、効率よく動かしていくのか。
+ 理想的な実装計画と、CPU の限界によってどこで妥協す
+ るのかを生々しく紹介します。\n\n一緒に「die 'hello'」
+ が動くところを経験して感動を共有しませんか?\n\nZ80 
+ 全盛期と比べてできることも増えた現代で、あえての
+ 縛りを強くした開発をする目的とは？\n生成AIを活用し
+ たシステム開発が活発になってきた現代において大事
+ なエンジニアとしての考え方や、忘れたくない技術力
+ の成長ポイントなどを詰め込みます。\n\nCPU の話が多い
+ ですが Z80 はめちゃくちゃ簡単なので、コンピュータに
+ 興味がある方なら誰でも理解できる構成にする予定で
+ す。\n\nThere’s More Than One Way To Design Instructions.\nTMTOWTDI !
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/71ae6e0f-377e-4a64-8675-f980
+ ccedb326
+END:VEVENT
+BEGIN:VEVENT
+UID:63eabba3-72c2-47cb-a7b8-a07d75c758d3@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T054500Z
+DTEND:20261129T060500Z
+SUMMARY:YAPCでのパネルディスカッションMC裏話 — 馮富久
+LOCATION:Track C
+DESCRIPTION:登壇者: 馮富久\nhttps://fortee.jp/yapc-tokyo-2026/proposa
+ l/63eabba3-72c2-47cb-a7b8-a07d75c758d3\n\nYAPCには、所属している
+ 技術評論社としての取材やボランティアスタッフ、ス
+ ピーカーとして、YAPC::Asia時代の2006年の第1回以来、計15
+ 回参加してきました。\nそのうち、2012（YAPC::Asia）、2016
+ 、2017、2019、2024（YAPC::Japan）の計5回では、パネルディ
+ スカッションのMCという立場で、スピーカーサイドで参
+ 加させていただき、多くのパネリストやスピーカー、
+ 参加者、スタッフの皆さまと交流することができまし
+ た。\n今回、その経験をふまえて「YAPCにおけるパネル
+ ディスカッションとは何か？」「パネルディスカッシ
+ ョンの内容はどう決まってどうやって進行するのか」
+ 「そもそもMCはどうやって依頼が来るのか」など、実際
+ の話を踏まえながら、テックカンファレンスにおける
+ パネルディスカッションの位置付けや意義についてま
+ とめながら、この先、テックカンファレンスでパネル
+ ディスカッションを企画したい方やMCを担当したい方に
+ 、ちょっとだけでも役立ちそうな情報をお届けします
+ 。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/63eabba3-72c2-47cb-a7b8-a07d
+ 75c758d3
+END:VEVENT
+BEGIN:VEVENT
+UID:0a08c0b6-7f29-4322-8848-19d1d7dc16ff@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T060000Z
+DTEND:20261129T062000Z
+SUMMARY:休憩
+LOCATION:Track A
+END:VEVENT
+BEGIN:VEVENT
+UID:840e3052-0767-49e2-b453-405f2f201eb7@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T060500Z
+DTEND:20261129T062000Z
+SUMMARY:休憩
+LOCATION:Track B
+END:VEVENT
+BEGIN:VEVENT
+UID:029433d3-7f36-4b9b-aa61-60683129245b@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T060500Z
+DTEND:20261129T062000Z
+SUMMARY:休憩
+LOCATION:Track C
+END:VEVENT
+BEGIN:VEVENT
+UID:fa8f30dd-9d11-44d2-b174-9bff53d5e3c6@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T062000Z
+DTEND:20261129T070000Z
+SUMMARY:mutsu - 令和の時代に JIT 搭載の Raku インタープリタ
+ を実装した話 — tokuhirom
+LOCATION:Track A
+DESCRIPTION:登壇者: tokuhirom\nhttps://fortee.jp/yapc-tokyo-2026/proposa
+ l/fa8f30dd-9d11-44d2-b174-9bff53d5e3c6\n\nPerl6 がいつかはやる時
+ 代がくる。そう思いながら僕たちは Perl5 で開発してい
+ た時代が僕にもありました。\n僕は今、ギョームでは go
+ lang で開発をしています。\n\nでも、AI 全盛の今だから
+ こそ、Raku みたいな言語で書きたいなぁ、と思ってる人
+ も多いんじゃないかなぁ。多分、きっと。\n\nrakudo って
+  MoarVM + nqp で実装されてるけれど、全部 Rust で実装して
+  JIT つけたら速いんじゃねーの?? って思ったんですね。
+  でも Raku って言語仕様が巨大だから大変じゃん。でも
+ 、最近、AI ってやつが流行ってるらしいじゃないです
+ か。\nAI の力を借りれば、できそうな気がするじゃない
+ ですか。\n\nRaku は Roast っていう巨大なテストスイート
+ がある。ちょっと前に、テストがあったら AI は実装を
+ 作れるって、言ってる人、 Xでみましたよねえ?? だから
+ できるんじゃないかなぁ、って思っちゃったんですよ
+ ねえ。\n思っちゃったら作るしかないんで、作ってるん
+ ですよね。2026年2月ぐらいからチクチクと。Roast の1\,464
+ ファイル中1\,433ファイルが完走するぐらいできあがっ
+ たんすよね。\n\n入れた瞬間から実用的なコードが書け
+ る batteries included なディストリビューション。パッケー
+ ジマネージャ Zef も同梱。mise で一発で入るように作り
+ ました。\n\nまとめ: どういう思いで Raku インタープリ
+ タ作ってんだ、っていう話/どうやって作ってんだって
+ 話。\nAIがバイトコードVMを嫌がってツリーウォーク型
+ を書き始め、二重実装になったのを剥がした話。難し
+ い設計変更を避けて小さい差分に逃げるのをどう向か
+ わせるかの話。GCやJITのような、丸投げできない判断の
+ 話。とかとかをしたいなぁ、と思ってます。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/fa8f30dd-9d11-44d2-b174-9bff
+ 53d5e3c6
+END:VEVENT
+BEGIN:VEVENT
+UID:da6e11fd-f1cb-4cb5-9bda-fe5926b3a333@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T062000Z
+DTEND:20261129T070000Z
+SUMMARY:作り、見守り、補修し、育て続ける ― これから
+ 先も必要なエンジニアリング技術 — 三谷 昌平
+LOCATION:Track B
+DESCRIPTION:登壇者: 三谷 昌平\nhttps://fortee.jp/yapc-tokyo-2026/pro
+ posal/da6e11fd-f1cb-4cb5-9bda-fe5926b3a333\n\nこのトークでは、プ
+ ロダクトの急成長を支え、長くプロダクトを運用し続
+ けるために重要な技術について話します。\n\n私は今の
+ 会社で、プロダクトがまだ世の中に出る前から開発に
+ 携わり、今年で7年目になります。0→1でプロダクトを
+ 作り始め、MVPをリリースし、以来ずっと同じプロダク
+ トを育て続けてきました。7年も開発していると、いろ
+ いろな開発の成功や失敗経験をします。リリース当初
+ の形のまま、今も現役で動き続けている仕組みもあれ
+ ば、パッチワークのように改修を重ねて生き延びてき
+ た機能も、うまくいかず思い切って作り替えたものも
+ ありました。それぞれの機能について、作ったときに
+ 考えていたことと、それぞれの「その後」を具体例と
+ ともに振り返りながら、質とスピードを高めていくた
+ めに必要な技術とは何だったのか？について話します
+ 。\n\nAI Slop問題なども言われる昨今の状況において、必
+ 要な技術を見極め、適切に作るものや作り方を選択で
+ きる力はますます重要になってきています。このトー
+ クを通じて、これから先の時代でも色褪せず学び続け
+ ると良いエンジニアリングの技術領域についてお伝え
+ します。\n\n**話すこと**\n\n- 0→1の時に決めたアーキテ
+ クチャやコーディング規約で、今も生き続けているも
+ の・無くなったもの\n- 機能の改修を繰り返す中で学ん
+ だ変えやすい・捨てやすい技術の重要性\n- YAGNIの原則
+ を踏まえながらも将来の拡張性も持たせるために必要
+ な考え方\n- 長く使われるソフトウェアを作り、育て続
+ けるために身につけておくべき技術とは
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/da6e11fd-f1cb-4cb5-9bda-fe59
+ 26b3a333
+END:VEVENT
+BEGIN:VEVENT
+UID:f3b8790a-01f7-4ec1-ad85-57e8ce90b1e8@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T062000Z
+DTEND:20261129T070000Z
+SUMMARY:15年前に技術力評価会を作った。いまは「何を伸
+ ばすか」より、「どんな状況なら力が出るか」を考え
+ ている — 小賀 昌法
+LOCATION:Track C
+DESCRIPTION:登壇者: 小賀 昌法\nhttps://fortee.jp/yapc-tokyo-2026/pro
+ posal/f3b8790a-01f7-4ec1-ad85-57e8ce90b1e8\n\n15年前、私は事業会
+ 社のCTOとして「技術力評価会」を作りました。事業を
+ エンジニアリングする組織を作りたい。そのために、
+ 組織で技術力を伸ばす文化の土台が必要だと考えてい
+ たからです。\n\nその取り組みを続けるなかで、同じ人
+ でも任される仕事や周囲との関係、置かれた状況によ
+ って、成果の出方は大きく変わる事例を見てきました
+ 。その違いは、技術力という軸だけではうまく説明で
+ きませんでした。\n\nそれから15年。生成AIによって、実
+ 装・レビュー・調査・設計など、これまで個人が身に
+ つけてきた専門性の一部を、必要なときに補えるよう
+ になりました。専門性が不要になるわけではありませ
+ ん。だからこそ、「次に何を伸ばすか」だけでなく、
+ 自分はどんな問題に向き合い、どんな仕事や環境なら
+ 力を発揮できるのかを考えることが、これまで以上に
+ 重要になると感じています。\n\n現在は企業の技術組織
+ を支援するなかで、「自分が力を発揮できた場面／し
+ づらかった場面」を本人と一緒に言語化し、上長との
+ 対話を通じて、仕事や役割、期待、関わり方を調整す
+ る取り組みをしています。\n\nこのセッションでは、15
+ 年前の技術力評価会の思想と、現在の支援現場で起き
+ ている事例を行き来しながら、「人はどう成長し、ど
+ う成果を出すのか」をAI時代の前提から問い直します。
+ \n\nAI時代に何を伸ばすべきか迷うエンジニアに、「自
+ 分はどんな状況なら力を発揮するのか」を理解し、そ
+ れを仕事や環境につなげていく視点を持ち帰ってもら
+ うトークです。Tech Lead・EM・CTOにとっても、本人との対
+ 話や環境づくりを考えるヒントになるはずです。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/f3b8790a-01f7-4ec1-ad85-57e8
+ ce90b1e8
+END:VEVENT
+BEGIN:VEVENT
+UID:3e891527-21ac-4b39-b889-e234722e34d7@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T070000Z
+DTEND:20261129T071000Z
+SUMMARY:休憩
+LOCATION:Track A
+END:VEVENT
+BEGIN:VEVENT
+UID:bcb3ce8e-d0bb-4738-b8f1-1f3e00fae96c@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T071000Z
+DTEND:20261129T080000Z
+SUMMARY:Lightning Talks
+LOCATION:Track A
+END:VEVENT
+BEGIN:VEVENT
+UID:9a304c5e-f81c-4bf7-967c-9cde5154ff98@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T080000Z
+DTEND:20261129T080500Z
+SUMMARY:転換
+LOCATION:Track A
+END:VEVENT
+BEGIN:VEVENT
+UID:be20e703-ab4b-42a4-9065-b8b17e4dcdf3@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T080500Z
+DTEND:20261129T085500Z
+SUMMARY:キャリアについてひとつだけ伝えるなら（仮） —
+  lestrrat
+LOCATION:Track A
+DESCRIPTION:登壇者: lestrrat\nhttps://fortee.jp/yapc-tokyo-2026/proposal
+ /be20e703-ab4b-42a4-9065-b8b17e4dcdf3\n\n普段は技術の話や自分の
+ 好きな分野の話しかしてこなかった私がなんの因果か
+ 真面目なキャリアについてのキーノートを頼まれてし
+ まいました。ちゃんとしたキャリアの話を知りたい方
+ はえらい人の伝記や研究者の話を聞きましょう。\n\nこ
+ のトークではこれからキャリアを築いていく世代の方
+ たち、そして私の子供の世代に人生を豊かに楽しくい
+ くるコツをひとつだけ伝えるなら… と思ったことにつ
+ いて話させていただきます。\n\n現在は社内コミュニケ
+ ーション施策の推進や登録者100万人超えのいち企業動
+ 画チャンネル運営などをに従事している私ですが、そ
+ れまでも10年以上YAPC::Asiaとbuildersconの運営を行ったり、
+ JPAを作ってみたり、あっちやこっちの企業に転職して
+ みたり、突然パンを毎日焼く生活になったり、Perlの連
+ 載記事の監修やGoの連載をしていたらいつのまに3Dプリ
+ ンターの連載を始めたりと自分の心と興味が赴くまま
+ にやってきた経緯を通して、これからのAI前提の時代の
+ キャリアの形成においても大切であろうと感じている
+ ことを皆様とシェアしたいと思います。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/be20e703-ab4b-42a4-9065-b8b1
+ 7e4dcdf3
+END:VEVENT
+BEGIN:VEVENT
+UID:a3c50d48-7df4-433f-92fc-713490a5a128@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T085500Z
+DTEND:20261129T090000Z
+SUMMARY:転換
+LOCATION:Track A
+END:VEVENT
+BEGIN:VEVENT
+UID:65e20640-d324-4c20-b9fc-fa433bc76c81@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T090000Z
+DTEND:20261129T093000Z
+SUMMARY:クロージング
+LOCATION:Track A
+END:VEVENT
+END:VCALENDAR

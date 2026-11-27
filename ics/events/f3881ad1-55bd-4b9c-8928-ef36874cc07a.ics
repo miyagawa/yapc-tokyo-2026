@@ -1,0 +1,44 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:f3881ad1-55bd-4b9c-8928-ef36874cc07a@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T052500Z
+DTEND:20261128T054500Z
+SUMMARY:本人確認システムを内製するということ — すて
+ にゃん
+LOCATION:Track C
+DESCRIPTION:登壇者: すてにゃん\nhttps://fortee.jp/yapc-tokyo-2026/p
+ roposal/f3881ad1-55bd-4b9c-8928-ef36874cc07a\n\n株式会社スマート
+ バンクでは家計簿アプリとプリペイドカードを提供し
+ ています。特定の機能の利用にはユーザーによる本人
+ 確認を必要としていますが、この本人確認のためのシ
+ ステムも自社で内製しています。\n\nみなさんも銀行口
+ 座を発行する際、本人確認を経験したことがあると思
+ います。本人確認書類（マイナンバーカードや運転免
+ 許証）の写真を撮ることもあれば、スマホにかざすこ
+ ともあると思います。顔写真を撮ることもありますね
+ 。この一連の流れを実装しています。\n\nこのトークで
+ は実装方法の具体の話はしません。どちらかというと
+ 一度作ったものでも放置しているわけではなく、運用
+ を続ける中で地道な改善を続けていますという話をし
+ ます。以下のようなトピックについてお話します。\n\n-
+  本人確認が必要な理由\n- 何故様々な確認方法が存在し
+ ていて、どれをいつ採用するとよいのか\n- ICチップの
+ 読み取りをするだけでは本人確認としては足りない理
+ 由\n- ICチップの読み取り以外にやっていること\n- どこ
+ に運用コストがかかっていて、どういうところに対し
+ て改善を実施しているのか\n\n本人確認システムについ
+ ては、Software Design 2026年8月号でも執筆させていただい
+ ていますが、\nSoftware Designの中では深ぼって話しきれな
+ かった運用コストの軽減のために直近やっていたこと
+ 等に焦点をあてたいと思っています。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/f3881ad1-55bd-4b9c-8928-ef36
+ 874cc07a
+END:VEVENT
+END:VCALENDAR

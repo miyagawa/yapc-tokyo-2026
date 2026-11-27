@@ -1,0 +1,41 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:6eddb298-1cf1-48e4-b18e-4a257943474e@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T025000Z
+DTEND:20261129T031000Z
+SUMMARY:次世代動画配信プロトコルMedia over QUICは何を変え
+ 、何を変えていないのか — yuorei
+LOCATION:Track B
+DESCRIPTION:登壇者: yuorei\nhttps://fortee.jp/yapc-tokyo-2026/proposal/6
+ eddb298-1cf1-48e4-b18e-4a257943474e\n\nMedia over QUIC（MoQ）は、QUIC
+ の上に構築された次世代の動画配信プロトコルで、IETF
+ で標準化が進んでいます。低遅延と大規模配信を両立
+ させる設計として注目されていますが、その核心であ
+ る「Group」という単位は、動画配信で長年向き合われて
+ きた「GOP（キーフレーム間隔）」の設計判断と驚くほ
+ ど重なって見えます。\n\n本トークでは、MoQを実際に動
+ かし、relayのログや実測データを一次情報として使いな
+ がら検証します。まず、HLSのセグメント長が実は「CDN
+ キャッシュ単位」「ABR切替点」「GOP境界」「破棄・再
+ 送単位」という4つの独立した意思決定を同時に決めて
+ しまっている構造を明らかにします。そのうえで、MoQ
+ のGroup/Track/Priorityという設計が、この4つのうちどこを
+ 本当に分離できていて、どこができていないのかを、
+ 実測データとともに技術的に検証します。\n\n標準化状
+ 況、依存パッケージの成熟度、運用上の実測課題（UDP
+ バッファチューニングなど）も踏まえ、「MoQは配信の
+ 何を変え、何を変えていないのか」を技術的に解剖し
+ 、今どんな場面で使うべきかまで示します。動画配信
+ に馴染みがない方にも、基礎から順を追って説明しま
+ す。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/6eddb298-1cf1-48e4-b18e-4a25
+ 7943474e
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:e4019609-0a73-4809-9403-0dd5f99b4834@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T063500Z
+DTEND:20261128T071500Z
+SUMMARY:今夜くらべてみました「Perl・Ruby・PHP」 〜 文法フ
+ ァイルから見る構文の裏側 〜 — ydah
+LOCATION:Track B
+DESCRIPTION:登壇者: ydah\nhttps://fortee.jp/yapc-tokyo-2026/proposal/e40
+ 19609-0a73-4809-9403-0dd5f99b4834\n\nPerl、Ruby、PHP。Webのサーバ
+ ーサイドを長く支えてきた三つのスクリプト言語の代
+ 表的な処理系には、Yacc/Bison系の記法で書かれた文法フ
+ ァイルがあります。しかし、そこに並ぶのは単なる構
+ 文規則ではありません。どこまでを字句解析器に任せ
+ るのか、演算子の優先順位や構文上の曖昧さをどう扱
+ うのか、規則をどう分割して構文木の構築や後続の処
+ 理へつなぐのか。各処理系が長年積み重ねてきた判断
+ も、文法ファイルとその周辺実装に表れます。\n\n本ト
+ ークでは、RubyコミッターとしてRubyの構文解析器を改善
+ し、パーサージェネレータの開発に取り組んできた発
+ 表者が、Perlのperly.y、Rubyのparse.y、PHPのzend_language_parser.y
+ を実際に読み比べます。はじめにYacc/Bison系の文法ファ
+ イルを読むための最小限の知識を紹介し、式、呼び出
+ し、ブロック、演算子の優先順位など、代表的な箇所
+ を追いかけて比べます。\n\n比較では、構文規則をrailroa
+ d diagramとして可視化し、規則数、選択肢、再帰、依存
+ 関係などの特徴量を手がかりに、詳しく読む箇所を絞
+ ります。数値だけで複雑さや優劣を決めるのではなく
+ 、実際の規則や周辺実装へ戻り、同じような構文要素
+ がそれぞれの言語でどう組み立てられ、複雑さがどこ
+ に置かれているのかを読み解きます。\n\n三つの文法フ
+ ァイルを横に並べると、普段は書き味として感じてい
+ る各言語らしさの一端が、規則の切り方や責務の境界
+ として見えてきます。Perl・Ruby・PHPの構文の裏側をのぞ
+ きながら、三者三様の実装上の工夫を比べてみましょ
+ う。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/e4019609-0a73-4809-9403-0dd5
+ f99b4834
+END:VEVENT
+END:VCALENDAR

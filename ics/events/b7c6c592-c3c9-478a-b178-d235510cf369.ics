@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:b7c6c592-c3c9-478a-b178-d235510cf369@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T052000Z
+DTEND:20261129T070000Z
+SUMMARY:即席LTワークショップ — hitode909
+LOCATION:踊り場
+DESCRIPTION:登壇者: hitode909\nhttps://fortee.jp/yapc-tokyo-2026/proposa
+ l/b7c6c592-c3c9-478a-b178-d235510cf369\n\nYAPCの舞台で、飛び入り
+ 発表しませんか？hitode909があなたの発表を後押ししま
+ す！\n\n発表テーマの探し方、組み立て方、興味のある
+ ことの探し方など、YAPCで発表するのに必要なすべてを
+ お伝えします。\nワークショップ形式で、参加者の皆様
+ にはLT資料をその場で作っていただき、即席LT大会を開
+ 催します。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/b7c6c592-c3c9-478a-b178-d235
+ 510cf369
+END:VEVENT
+END:VCALENDAR

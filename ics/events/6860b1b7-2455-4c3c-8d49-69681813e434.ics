@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:6860b1b7-2455-4c3c-8d49-69681813e434@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T023000Z
+DTEND:20261128T031000Z
+SUMMARY:2026年の言語イベント振り返り
+LOCATION:踊り場
+DESCRIPTION:登壇者: hourin\n\n今年もたくさんの言語イベント
+ がありました。それらを参加者の皆さんの証言で振り
+ 返りたいと思います。\nslidoを用意しますので、皆さん
+ が参加した言語イベントの内容や感想を書き込んでく
+ ださい。それを見ながらみんなでワイワイしましょう
+ ！
+END:VEVENT
+END:VCALENDAR

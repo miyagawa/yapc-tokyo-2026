@@ -1,0 +1,35 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:c38049d1-b9d8-4121-970b-3e9246070e64@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T073000Z
+DTEND:20261128T075000Z
+SUMMARY:Do we need (any more) computer languages? — Dan Kogai
+LOCATION:Track B
+DESCRIPTION:登壇者: Dan Kogai\nhttps://fortee.jp/yapc-tokyo-2026/proposa
+ l/c38049d1-b9d8-4121-970b-3e9246070e64\n\n## Short answer: no. But give me
+  20 minutes to explain why.\n* Case studies: Who speaks Perl better\; Clau
+ de or Dan?\n   * Can it make Raku speak hexfloat?\n   * Implement SION for
+  Perl?\n   * ...\n* "Which language should you learn the most?" — "Engli
+ sh!"\n   * "Do you even know how smart I am in Spanish?"\n* How computer l
+ anguages are born -- needed or wanted?\n  * In what language do they dream
+ ?\n* There's more than one language to do it — including the ones that d
+ on't even exist yet.\n## 短い答え：No。でも、その理由を20分
+ で説明させて🙏\n* ケーススタディ：Perlが上手いのは
+ どっち? Claude? Dan?\n   * Raku に hexfloat をしゃべらせられ
+ るか？\n   * SION を Perl で実装できるか？\n  * ...\n* 「ど
+ の言語を一番勉強すべき？」「英語！」\n   * 「スペイ
+ ン語ならどれだけあたしが賢いかわかる?」\n* 言語はど
+ う生まれてくるか?必要だから?望まれて?\n  * 「アンド
+ ロイドは何語の夢を見るか?」\n* それ用の言語はひとつ
+ じゃない--未だ存在しない言語も含めて
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/c38049d1-b9d8-4121-970b-3e92
+ 46070e64
+END:VEVENT
+END:VCALENDAR

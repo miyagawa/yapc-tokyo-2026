@@ -1,0 +1,36 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:5bce09d0-d55e-4ca9-a0cd-8cddb19c17e1@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T052000Z
+DTEND:20261129T054000Z
+SUMMARY:持続可能なコミュニティとは何か — 古川陽介
+LOCATION:Track C
+DESCRIPTION:登壇者: 古川陽介\nhttps://fortee.jp/yapc-tokyo-2026/prop
+ osal/5bce09d0-d55e-4ca9-a0cd-8cddb19c17e1\n\nNode学園祭からJSConf.jp
+ にいたるまで、10年以上のカンファレンスを一人でやり
+ 続けています。\n僕のコミュニティが全く持って持続可
+ 能なものであるとは思っておらず、YAPCなどの他のカン
+ ファレンスに比べたら全く持ってできていない小さな
+ ものであると思います。\nただいくつか伝えたいメッセ
+ ージがあります。\n\n1. 個人の思いだけでどこまで行け
+ るのかを試したいと思っていること\n2. 無理に大きなも
+ のにする必要はないと思っていること\n3. 裾野を広げる
+ のではなく、先を尖らせようと思っていること\n4. でき
+ ないことは人に任せようとしていること\n5. その結果、
+ お金が必要なこともあるので法人を持っている方が便
+ 利であること\n6. やめたくなったらいつでもやめようと
+ おもっていること\n\nなどなど、今挙げただけでも6つほ
+ どあります。全くまとまっていない情報ですが、自分
+ がJSConf.jpをやる理由と持続可能なコミュニティについ
+ ての話ができたら幸いです。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/5bce09d0-d55e-4ca9-a0cd-8cdd
+ b19c17e1
+END:VEVENT
+END:VCALENDAR

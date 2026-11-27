@@ -1,0 +1,32 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:f7113ee5-5348-4ffe-ab02-6fa8eae8bb13@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T075000Z
+DTEND:20261128T081000Z
+SUMMARY:AIエージェント実行基盤としてのErlang/OTP — こま
+ もか
+LOCATION:Track B
+DESCRIPTION:登壇者: こまもか\nhttps://fortee.jp/yapc-tokyo-2026/prop
+ osal/f7113ee5-5348-4ffe-ab02-6fa8eae8bb13\n\n昨今、OpenClawのように
+ 自律的に行動するAIエージェントが登場するなど、より
+ 一層AIエージェントの需要が高まっています。 また、AI
+ エージェントを実装するフレームワークも数多く生ま
+ れています。 それらのフレームワークは並列処理や自
+ 動回復など共通した課題を解決していますが、実はそ
+ れらの問題が約30年前に既に別の形で解決されていると
+ したらどうでしょうか。\n\nこの登壇では、Erlang/OTPを「
+ AIエージェント実行基盤」として再解釈し、Erlang/OTPとAI
+ エージェントの相性の良さ、現時点での活用方法やエ
+ コシステム、既存のライブラリやフレームワークとの
+ 優位点について紹介します。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/f7113ee5-5348-4ffe-ab02-6fa8
+ eae8bb13
+END:VEVENT
+END:VCALENDAR

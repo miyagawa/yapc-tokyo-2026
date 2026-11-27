@@ -1,0 +1,50 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:f191c008-103b-4357-bd8c-55673f1bdd69@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T041000Z
+DTEND:20261128T045000Z
+SUMMARY:Webアプリケーションにおける"認可"の設計・実装
+ パターン — macopy
+LOCATION:Track C
+DESCRIPTION:登壇者: macopy\nhttps://fortee.jp/yapc-tokyo-2026/proposal/f
+ 191c008-103b-4357-bd8c-55673f1bdd69\n\nここいらで、Webアプリケ
+ ーションの認可について整理しましょう。\n\n認可とと
+ もに語られる認証については、これまで多くの設計・
+ 実装パターンが共有されてきました。一方、認可には
+ ユーザーの役割、データの所有関係、組織やテナント
+ の境界、リソースの状態など、アプリケーション固有
+ の事情が深く関係します。\nRBAC、ABACといった認可に関
+ する一般的な概念は存在します。しかし、それらを実
+ 際のWebアプリケーションの設計やコードへどう落とし
+ 込むかについては、認証ほど定型化されていません。
+ その結果、開発者はOWASPなどのガイドラインを参照しな
+ がら、個々のアプリケーションに合わせて認可を設計
+ ・実装しています。\n\nしかしAIに単に「認可を実装し
+ て」と依頼しても、一貫した実装にはなりませんし正
+ しく実装できるとも限りません。AIが正しく実装できる
+ ようにするには、認可の設計・実装パターンをあらか
+ じめ用意しておく必要があります。\n\nこのトークでは
+ 、OWASP Authorization Cheat Sheetなどで扱われる認可の概念を
+ 整理し、Webアプリケーションで何を考え、どこに実装
+ するべきなのかを示します。\n\nAIが認可を一貫して実
+ 装しやすくするために、私がアプリケーション側に用
+ 意し、実践しているパターンを紹介します。\n\nこのト
+ ークを聞いてほしい人\n\n* 認証と認可の違いが、まだ
+ 曖昧な人\n* 認可をアプリケーションのどの層に、どの
+ ように組み込めばよいかわからない人\n* AIに実装を任
+ せているが、認可が安全かつ一貫して実装されている
+ か不安な人\n\nこのトークで扱わないこと\n\n* Casbin、Ceda
+ r、Amazon Verified Permissionsなど、専用のポリシー言語や認
+ 可エンジンを導入する設計\n* OAuth 2.0などによるアクセ
+ ス権限の委任や、認可サーバーの実装
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/f191c008-103b-4357-bd8c-5567
+ 3f1bdd69
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,39 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:be20e703-ab4b-42a4-9065-b8b17e4dcdf3@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T080500Z
+DTEND:20261129T085500Z
+SUMMARY:キャリアについてひとつだけ伝えるなら（仮） —
+  lestrrat
+LOCATION:Track A
+DESCRIPTION:登壇者: lestrrat\nhttps://fortee.jp/yapc-tokyo-2026/proposal
+ /be20e703-ab4b-42a4-9065-b8b17e4dcdf3\n\n普段は技術の話や自分の
+ 好きな分野の話しかしてこなかった私がなんの因果か
+ 真面目なキャリアについてのキーノートを頼まれてし
+ まいました。ちゃんとしたキャリアの話を知りたい方
+ はえらい人の伝記や研究者の話を聞きましょう。\n\nこ
+ のトークではこれからキャリアを築いていく世代の方
+ たち、そして私の子供の世代に人生を豊かに楽しくい
+ くるコツをひとつだけ伝えるなら… と思ったことにつ
+ いて話させていただきます。\n\n現在は社内コミュニケ
+ ーション施策の推進や登録者100万人超えのいち企業動
+ 画チャンネル運営などをに従事している私ですが、そ
+ れまでも10年以上YAPC::Asiaとbuildersconの運営を行ったり、
+ JPAを作ってみたり、あっちやこっちの企業に転職して
+ みたり、突然パンを毎日焼く生活になったり、Perlの連
+ 載記事の監修やGoの連載をしていたらいつのまに3Dプリ
+ ンターの連載を始めたりと自分の心と興味が赴くまま
+ にやってきた経緯を通して、これからのAI前提の時代の
+ キャリアの形成においても大切であろうと感じている
+ ことを皆様とシェアしたいと思います。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/be20e703-ab4b-42a4-9065-b8b1
+ 7e4dcdf3
+END:VEVENT
+END:VCALENDAR

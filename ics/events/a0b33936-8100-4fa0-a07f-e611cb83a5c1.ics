@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:a0b33936-8100-4fa0-a07f-e611cb83a5c1@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T011000Z
+DTEND:20261129T015000Z
+SUMMARY:時雨堂コトハジメ — voluntas
+LOCATION:Track A
+DESCRIPTION:登壇者: voluntas\nhttps://fortee.jp/yapc-tokyo-2026/proposal
+ /a0b33936-8100-4fa0-a07f-e611cb83a5c1\n\n時雨堂の 13 年とこれか
+ らについてお話しします。 Gist にて公開している「時
+ 雨堂コトハジメ」の YAPC 版です。\n時雨堂の経営に関し
+ て登壇して話すというのは、これで最初で最後だと思
+ います。\n\n時雨堂コトハジメ\nhttps://gist.github.com/voluntas
+ /8183054
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/a0b33936-8100-4fa0-a07f-e611
+ cb83a5c1
+END:VEVENT
+END:VCALENDAR

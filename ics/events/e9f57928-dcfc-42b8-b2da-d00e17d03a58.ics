@@ -1,0 +1,36 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:e9f57928-dcfc-42b8-b2da-d00e17d03a58@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T013500Z
+DTEND:20261129T015500Z
+SUMMARY:Perl でコンテナランタイムは書けるのか？ — Ayako 
+ Hayasaka
+LOCATION:Track B
+DESCRIPTION:登壇者: Ayako Hayasaka\nhttps://fortee.jp/yapc-tokyo-2026/pr
+ oposal/e9f57928-dcfc-42b8-b2da-d00e17d03a58\n\nPerl では、syscall() と
+  pack() が言語組み込みで利用できます。これなら、低レ
+ イヤコンテナランタイム実装のようなシステムプログ
+ ラミングもできるのではないでしょうか？\n本セッショ
+ ンでは、筆者が実際に動作する低レイヤコンテナラン
+ タイムを Perl で自作してみた経験を、Perl だからこそで
+ きた実装・Perl であるからこそ必要になった Hack を含め
+ て紹介します。\n\n## 話すこと\n- コンテナランタイムが
+ 行うざっくりとした処理の流れ\n- syscall() でカーネルの
+ システムコールを直接呼ぶ例\n- C interoperability の基本〜
+ 応用例\n- Perl らしい書き方が活きる場面\n- Perl で書い
+ たことにより発生した問題とその回避策\n- 既存コンテ
+ ナランタイムとの比較 (起動オーバーヘッドを含む性能
+ 面)\n\n## 対象者\n- 低レイヤプログラミングや、Perl の新
+ しい活用領域に興味がある方\n- Perl で C の関数を呼び
+ 出す際の選択肢や tips を知りたい方
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/e9f57928-dcfc-42b8-b2da-d00e
+ 17d03a58
+END:VEVENT
+END:VCALENDAR

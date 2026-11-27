@@ -1,0 +1,57 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:eba7e3d3-9d71-4357-9b83-4cb9a096cf7b@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T041000Z
+DTEND:20261128T051000Z
+SUMMARY:1時間で作るPerlOS: Yet Another Perl Computer — 竹迫良範
+LOCATION:ハンズオン
+DESCRIPTION:登壇者: 竹迫良範\nhttps://fortee.jp/yapc-tokyo-2026/prop
+ osal/eba7e3d3-9d71-4357-9b83-4cb9a096cf7b\n\nこのハンズオンでは
+ 、組み込み用のPerl言語処理系「microperl」を自作OSに組
+ み込み、起動するとPerlのシェルが使える「PerlOS」を1時
+ 間で作ります。\n\n最初は仮想環境QEMUを用いてシリアル
+ コンソール経由で文字を表示できる環境作りから始め
+ ます。\nまず、C言語で数十行のコードを書いて、最小
+ の自作OSを起動させるところまで全員で頑張ります。\np
+ rintfが存在しないBare Metal環境なので、簡易的なC標準ラ
+ イブラリ（libc）も自作します。\nそして、microperlをコ
+ ンパイルして自作OSを組み込み、シェルのコマンドをPer
+ lで実装します。\n\n次に、PerlからOSの機能を呼び出すた
+ め、DynaLoaderは使わず、PerlのXSUBを組み込みます。\n\nPerl
+ OS::load($addr)\;\nPerlOS::store($addr\, $value)\;\n\nこのようなプ
+ リミティブなアドレスの読み書きができるインターフ
+ ェースを作っておくと、\nUARTのレジスタを操作してシ
+ リアルに文字出力する関数をPerlで書くことができます
+ 。\n\nsub putc { PerlOS::store(0x40070000\, ord $_[0])\; }\n\nメモリ
+ マップドI/Oのアドレスを直接読み書きすることで、GPIO
+ でLEDを光らせたり、UARTから文字を送ったりと、通常はC
+ 言語で記述するようなデバイスドライバの処理までPerl
+ で書けるようになります。\n\n最終的には、QEMU上で作っ
+ たPerlOSをRaspberry Pi Pico 2の実機向けにビルドします。RP23
+ 50のCortex-M33がハードウェアで処理できる単精度FPUを利
+ 用できるよう、PerlのNVの値をdoubleではなくfloatを使うよ
+ うに修正します。RAM領域も限られているためmallocの実
+ 装も改善します。普段は当たり前のように存在してい
+ るOSの機能を、自分の手で一つずつパッチワークで作っ
+ ていくことで、内部で何が起きているのか手触り感を
+ 持って実感できます。\n\nPerlのモットーであるTMTOWTDIをO
+ S自作の世界でも体現してみましょう。\n\nThere's more than 
+ one way to Boot it!\n\n# 持ち帰れること\n\n- OSを自作したと
+ いう実績解除\n- OSに頼らずにPerlを動かす苦行と感動\n- 
+ XSUBを使ってPerlとC言語を行き来する実用的な方法\n- OS
+ の機能をC言語ではなくPerlで記述する大胆な発想\n\n# 想
+ 定する参加者\n\n- C言語とPerlの基本的な文法が読めれば
+ 参加できます。\n- OS自作、アセンブリ、Perl内部実装の
+ 知識は前提にしません。\n\n# ソースコード\nhttps://github.
+ com/takesako/perlos
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/eba7e3d3-9d71-4357-9b83-4cb9
+ a096cf7b
+END:VEVENT
+END:VCALENDAR

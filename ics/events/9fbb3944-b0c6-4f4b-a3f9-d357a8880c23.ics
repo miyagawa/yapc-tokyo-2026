@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:9fbb3944-b0c6-4f4b-a3f9-d357a8880c23@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T045500Z
+DTEND:20261128T051500Z
+SUMMARY:OpenTelemetryのPerl実装にいまこそ必要なもの — 山口
+ 能迪
+LOCATION:Track A
+DESCRIPTION:登壇者: 山口能迪\nhttps://fortee.jp/yapc-tokyo-2026/prop
+ osal/9fbb3944-b0c6-4f4b-a3f9-d357a8880c23\n\nOpenTelemetryは、アプリ
+ ケーションの動きをトレース、メトリクス、ログとし
+ て取り出すための仕様です。処理の一区切りをスパン
+ という単位で記録し、複数のサービスをまたいでも追
+ 跡できるようにします。しかし、公式ドキュメントの
+ 「その他の言語」ページで、公式実装がまだない言語
+ のうちSIG設立の声が出ているものとして、Perが挙がっ
+ ています。Perlはまだ公式にサポートされていないので
+ す。サードパーティ実装としてCPANにはjjatria氏によるOpe
+ nTelemetryとOpenTelemetry::SDKがあり、トレースの生成とエク
+ スポートは動きます。メトリクスとログは開発中で、SI
+ G化の議論も#io-asyncチャンネルで進んでいます。このセ
+ ッションでは、このCPAN実装を実際のPerlアプリケーショ
+ ンに組み込んだ様子を見せ、動く部分と手つかずの部
+ 分を具体的に示します。\n\nまたコードに触れずに済ま
+ せる道もあります。公式なゼロコード自動計装が用意
+ されていない言語の受け皿として、OpenTelemetry eBPF Instrum
+ entationがあります。しかし、OBIを使った計装にも別の問
+ 題があります。これらを踏まえて、今のOpenTelemetry関連
+ の実装に何が必要かを具体的に挙げます。\n\nPerl は、We
+ b の実用を支え、CPAN や Plack/PSGI のようなエコシステム
+ を通じて「つなぐ」文化を育ててきた言語です。その
+ 文化は、OpenTelemetry が目指す言語横断の観測にも通じて
+ います。Perlの名前をあの「その他の言語」のページか
+ ら消すのは、会場にいる誰かかもしれません。本セッ
+ ションがPerlにおけるOpenTelemetryを考えるきっかけになれ
+ ばと思っています。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/9fbb3944-b0c6-4f4b-a3f9-d357
+ a8880c23
+END:VEVENT
+END:VCALENDAR

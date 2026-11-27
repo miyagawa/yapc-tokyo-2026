@@ -1,0 +1,44 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:3f5f0b00-4784-4733-8658-f247a1fd3530@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T023000Z
+DTEND:20261128T025000Z
+SUMMARY:管理画面のデザインシステムを考えてと言われた
+ ら — mazco
+LOCATION:Track C
+DESCRIPTION:登壇者: mazco\nhttps://fortee.jp/yapc-tokyo-2026/proposal/3f
+ 5f0b00-4784-4733-8658-f247a1fd3530\n\n株式会社はてなではマンガ
+ 配信サービスGigaViewerを開発・提供しています。\n読者
+ にマンガを届けるために出版社や編集部が日々運用す
+ る管理画面がGigaViewerには存在します。\nGigaViewerではこ
+ れまで読者向けの画面を優先して開発しており、管理
+ 画面はエンジニアが中心になって運用・改善してきま
+ した。\nそこにデザイナーがアサインされ、1人でデザ
+ インすることになったことから、管理画面のデザイン
+ をチームのプロダクトにするためにやってきたことを
+ 話します。\n\n以下のようなことをお話ししようと思い
+ ます。\n\n- GigaViewerの管理画面\n  - 歴史的経緯\n  - デザ
+ イナーがアサインされたあとの画面\n- チームでのデザ
+ インシステムの定義\n  - Perlテンプレートから、UIコン
+ ポーネントへの置き換え\n- デザイナー1人とエンジニア
+ の協業\n  - エンジニア起点のデザイン提案とデザイン
+ レビュー\n- デザインの判断をチームで議論できる形に\
+ n  - ペアレビューでの知見共有\n  - 暗黙知の言語化\n- 
+ デザインシステムとAI活用\n  - AIフレンドリーなガイド
+ ラインづくり\n  - デザイン提案の多様化に向き合う\n\n
+ このトークでは、一部のメンバーの経験に頼っていた
+ デザインの判断を、チームで議論できる形にしてきた
+ 過程と、ひとりでデザインシステムを考えている人に
+ 「こういうやり方もあるよ」とお伝えできる、私自身
+ の実践例をあわせてご紹介したいと思っています。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/3f5f0b00-4784-4733-8658-f247
+ a1fd3530
+END:VEVENT
+END:VCALENDAR

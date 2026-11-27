@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:337d8d50-08e4-461b-9db7-6440fa4766d8@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T020000Z
+DTEND:20261128T022000Z
+SUMMARY:（続）大学における人工知能関連の教育について 
+ — 山澤（福工大）
+LOCATION:Track C
+DESCRIPTION:登壇者: 山澤（福工大）\nhttps://fortee.jp/yapc-tokyo-
+ 2026/proposal/337d8d50-08e4-461b-9db7-6440fa4766d8\n\nYAPC::Fukuoka 2025 
+ では，私が担当しているプログラミング授業において
+ ，生成AIの使用率が2025年度に一気に増えたことを紹介
+ しました．\nそれを踏まえて，2026年度の授業で対応し
+ た方法と，その結果について紹介したいと思います．\n
+ 結果として，対応策がある程度うまく機能しましたが
+ ，さらなる対応の必要性も出てきました．
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/337d8d50-08e4-461b-9db7-6440
+ fa4766d8
+END:VEVENT
+END:VCALENDAR

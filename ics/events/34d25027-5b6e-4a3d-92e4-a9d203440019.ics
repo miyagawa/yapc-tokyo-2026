@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:34d25027-5b6e-4a3d-92e4-a9d203440019@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T052500Z
+DTEND:20261128T060500Z
+SUMMARY:Perlと歩む未来 - go-perl がつなぐPerlの過去と未来 - 
+ — goccy
+LOCATION:Track A
+DESCRIPTION:登壇者: goccy\nhttps://fortee.jp/yapc-tokyo-2026/proposal/34
+ d25027-5b6e-4a3d-92e4-a9d203440019\n\nかつて YAPC::Asia に登壇して
+ から13年近くが経ち、当時 Perl を書いていた私も、今で
+ は仕事で Perl を書くことがほとんどなくなりました。\n
+ \n2026年の今、新しい Web バックエンドに Perl を選ぶ人は
+ 多くないかもしれません。しかし、これまで Perl で作
+ ってきたものまで過去にする必要があるのでしょうか
+ 。CPAN や、長年運用され業務知識が蓄積された Perl アプ
+ リケーションを、現代のソフトウェアと組み合わせて
+ 活かすことはできないでしょうか。\n\nそんなことを考
+ えながら、github.com/goccy/go-perl を作りました。go-perl は P
+ erl 5.44.0 を Wasm にコンパイルし、さらに Go へ変換する
+ ことで、Perl Interpreter を Pure Go の世界へ持ち込むプロジ
+ ェクトです。XS、PSGI、Go と Perl の相互呼び出し、複数 I
+ nterpreter の CoW によるメモリ共有、syscall の制御などを
+ サポートし、既存の Perl 資産を Go から利用できるよう
+ にします。\n\nAI によって既存コードを他言語へリライ
+ トすることも現実的になりました。しかし、すべてを
+ 書き直すことだけが未来へ進む方法ではありません。
+ 既存の Perl を活かし、新しい部分を Go で作り、必要な
+ ところだけ両者をつなぐ。そうすることで、Perl ととも
+ に積み上げてきた資産を、これからのソフトウェアに
+ も活かせるのではないでしょうか。\n\n本発表では go-per
+ l の実装の裏側と、既存の XS や PSGI / Plack アプリケーシ
+ ョンを Go の世界へ持ち込む仕組みを解説し、Perl の資
+ 産を現代のアーキテクチャや AI 時代に活かす選択肢を
+ 紹介します。\n\nPerl と歩む未来を、一緒に考えてみま
+ せんか。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/34d25027-5b6e-4a3d-92e4-a9d2
+ 03440019
+END:VEVENT
+END:VCALENDAR

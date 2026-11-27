@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:c8c7e11d-69db-49e4-ba61-be9ffc40a209@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T052500Z
+DTEND:20261128T060500Z
+SUMMARY:みんなでつくって壊して直して学ぼう！Kubernetes！
+  — あおい
+LOCATION:ハンズオン
+DESCRIPTION:登壇者: あおい\nhttps://fortee.jp/yapc-tokyo-2026/proposa
+ l/c8c7e11d-69db-49e4-ba61-be9ffc40a209\n\nみなさん、Kubernetesとい
+ う技術の名前を聞いたことがありますか？「なんかみ
+ たことあるけれど、読み方がわからない」「ちゃんと
+ 勉強した方がいいんだろうけれど、いまいちやる気が
+ でない」そんな方はいないでしょうか。今までインフ
+ ラレイヤーを触ったことがないアプリケーション開発
+ 者でも、インフラレイヤーを抽象化するKubernetesが登場
+ したことによって触らなければいけなくなった現場も
+ あります。\n本セッションではそんなKubernetesをみなさ
+ んのPCブラウザから簡単に操作できる環境で、つくって
+ 壊してもらいます。といってもKubernetesは壊れにくく作
+ られているので、Kubernetes自身を壊すわけではありませ
+ ん。Kubernetes上にデプロイしたアプリケーションがあた
+ かも壊れたように見える変更を加え、何が問題なのか
+ 理解し、実際に手を動かして直しながら学んでもらい
+ ます。\n扱うレベル感は以下の通りです。\n\n- コンテナ
+ を使ったアプリケーションのデプロイ方法\n- Kubernetesの
+ 基本概念（何が嬉しいのか）\n- ステートレスアプリの
+ デプロイに最低限必要な3つのリソース\n  1. Pod\n  2. Deplo
+ yment\n  3. Service\n　→ それぞれを実際に「壊してみる」
+ ハンズオン形式で学ぶ\n\nこのセッションの対象者は、
+ 上記内容を知りたいと思うKubernetes未経験者・初心者の
+ 方です。\n\nまた、このハンズオンを通じて参加者には
+ 以下を持ち帰ってもらえたらと思います！\n\n- なんと
+ なくKubernetesが何かわかった\n- kubectlを使ってアプリケ
+ ーションのデプロイができた\n- Kubernetesが好きになって
+ きたかもと思う気持ち
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/c8c7e11d-69db-49e4-ba61-be9f
+ fc40a209
+END:VEVENT
+END:VCALENDAR

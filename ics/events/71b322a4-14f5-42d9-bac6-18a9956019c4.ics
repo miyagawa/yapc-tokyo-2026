@@ -1,0 +1,32 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:71b322a4-14f5-42d9-bac6-18a9956019c4@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T014000Z
+DTEND:20261128T022000Z
+SUMMARY:What is an OSS Ecosystem Steward\, and can we have one? — Salve J
+ . Nilsen
+LOCATION:Track A
+DESCRIPTION:登壇者: Salve J. Nilsen\nhttps://fortee.jp/yapc-tokyo-2026/p
+ roposal/71b322a4-14f5-42d9-bac6-18a9956019c4\n\nThe EU Cyber Resilience Ac
+ t (CRA) introduces a new entity dedicated to sustaining and securing Open 
+ Source projects: the OSS Steward.\n\nThis organization is meant to support
+  projects in many ways – including helping attest their software is inte
+ nded for commercial use\, and to be the single contact point towards marke
+ t authorities\, CSIRTs\, and manufacturers wishing to remain CRA compliant
+ .\n\nIn many ecosystems\, existing foundations may offer this help. But fo
+ r Perl and CPAN\, there is no central organization that is both capable an
+ d willing to assume the responsibilities of a Steward. So how can we still
+  support all who intend to continue make\, rely on\, and benefit from OSS\
+ , Perl and CPAN?\n\nHere\, Salve presents his solution – a non-profit co
+ mmunity-owned cooperative: the OSS Ecosystem Steward.
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/71b322a4-14f5-42d9-bac6-18a9
+ 956019c4
+END:VEVENT
+END:VCALENDAR

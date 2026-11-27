@@ -1,0 +1,49 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:ebf15902-c008-419e-99fb-681c412ab2a0@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T045000Z
+DTEND:20261129T051000Z
+SUMMARY:品質保証のその先へ —Question Askerとしてのバリュ
+ ーの出し方 — piro-chan
+LOCATION:Track C
+DESCRIPTION:登壇者: piro-chan\nhttps://fortee.jp/yapc-tokyo-2026/proposa
+ l/ebf15902-c008-419e-99fb-681c412ab2a0\n\nQuestion Askerとは、アジャ
+ イルテスティングについて書かれた名著『Agile Testing Con
+ densed』（Janet Gregory、Lisa Crispin 著）の中で紹介された概
+ 念であり、QAは品質保証の担当でありながら、鋭い洞察
+ 力をもとにチームに問いを投げかける「Question Asker」の
+ 役割も担っている、といった意味が込められた言葉で
+ す。\n\nAIが進化し続ける現在、開発技術だけでなくソ
+ フトウェアテストの領域も、人間のQAだけが持っている
+ 専門性ではなくなってきています。そのように職能ご
+ との境界が溶けゆく状況の中、QAエンジニアが製品の価
+ 値を高めるために求められることは何なのか。\n\n新規
+ 事業の立ち上げからQAとして携わった私は、この壁に直
+ 面することになりました。\n全てが仮説の状態で品質を
+ 高めるためには、プロジェクトの中にある目に見えな
+ いリスクを拾い上げ、チームのものにして1つ1つ取り除
+ いていくことが必要でした。\n\n製品のグランドローン
+ チを迎えた今、こうした自分の動きを振り返って、\n「
+ Question Asker」という1つの軸で抽象化できそうだと考え
+ ています。\n自らがリアルに体験したQAエンジニアの役
+ 割の変革について、具体例を交えてお話します。\n\n【L
+ earning Outcome】\n対象\n- AI時代の自らの役割について模索
+ しているQAエンジニアの方\n- チームでプロダクトの価
+ 値を上げていくためにQAと協力したい開発エンジニアの
+ 方\n- QAにどのような役割・期待値を与えるか悩んでい
+ るエンジニアリングマネージャーの方\n\n得られるもの\
+ n- テストだけに留まらない、QAエンジニアがプロダクト
+ の価値を高めるための考え方や実際の動き方\n- AIと人
+ 間それぞれの得意領域を踏まえた上での、QAエンジニア
+ が今後キャリアをどのように磨いていくべきか
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/ebf15902-c008-419e-99fb-681c
+ 412ab2a0
+END:VEVENT
+END:VCALENDAR

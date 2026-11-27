@@ -1,0 +1,37 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:63eabba3-72c2-47cb-a7b8-a07d75c758d3@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T054500Z
+DTEND:20261129T060500Z
+SUMMARY:YAPCでのパネルディスカッションMC裏話 — 馮富久
+LOCATION:Track C
+DESCRIPTION:登壇者: 馮富久\nhttps://fortee.jp/yapc-tokyo-2026/proposa
+ l/63eabba3-72c2-47cb-a7b8-a07d75c758d3\n\nYAPCには、所属している
+ 技術評論社としての取材やボランティアスタッフ、ス
+ ピーカーとして、YAPC::Asia時代の2006年の第1回以来、計15
+ 回参加してきました。\nそのうち、2012（YAPC::Asia）、2016
+ 、2017、2019、2024（YAPC::Japan）の計5回では、パネルディ
+ スカッションのMCという立場で、スピーカーサイドで参
+ 加させていただき、多くのパネリストやスピーカー、
+ 参加者、スタッフの皆さまと交流することができまし
+ た。\n今回、その経験をふまえて「YAPCにおけるパネル
+ ディスカッションとは何か？」「パネルディスカッシ
+ ョンの内容はどう決まってどうやって進行するのか」
+ 「そもそもMCはどうやって依頼が来るのか」など、実際
+ の話を踏まえながら、テックカンファレンスにおける
+ パネルディスカッションの位置付けや意義についてま
+ とめながら、この先、テックカンファレンスでパネル
+ ディスカッションを企画したい方やMCを担当したい方に
+ 、ちょっとだけでも役立ちそうな情報をお届けします
+ 。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/63eabba3-72c2-47cb-a7b8-a07d
+ 75c758d3
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,50 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:013ab180-a560-434c-8582-8f2f3f6695f3@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T052500Z
+DTEND:20261128T060500Z
+SUMMARY:テーブルはクラスではない： SQLファーストなスキ
+ ーマ管理 — 牧内大輔（MakKi）
+LOCATION:Track B
+DESCRIPTION:登壇者: 牧内大輔（MakKi）\nhttps://fortee.jp/yapc-toky
+ o-2026/proposal/013ab180-a560-434c-8582-8f2f3f6695f3\n\nORMやマイグレ
+ ーションツールに悩まされるのを、やめませんか。素
+ のSQLで書いてみましょう。\n\nこのJOIN、ORMでどう書くん
+ だ。誰もが一度は悩むはずです。マイグレーションも
+ 同じで、INSERT INTO ... SELECTでDB内だけで数百万行を移し
+ たい、ALGORITHM=INPLACE\, LOCK=NONEで止めずにインデックスを
+ 張りたい、と思った瞬間に生のSQLが顔を出します。移
+ 植性と引き換えに、ORMではRDB固有の効率的な構文は削
+ られがちです。あとからRDBを変えることはまず無いで
+ しょう。\n\nそもそも1クラス1テーブルは必要でしょう
+ か。SELECTでフィールドを限定したりJOINや集約をしたら
+ 、その型はどのテーブルとも異なります。型はクエリ
+ のものです。そしてスキーマはDBのもので、アプリのコ
+ ードより長く生きます。テーブルとクラスを一対一に
+ 結ぶ設計は、そのどちらも取り違えてはいませんか。\n
+ \nORMによるスキーマ管理を捨てて失うのは、保証です。
+ そのSQLは正しいのか、downで戻るのか。\n\nそこでDBエン
+ ジンを組み込んだツールmigyを作りました。up/downを実際
+ に実行して可逆性を確かめます。良かったのは開発体
+ 験でした。DBを立てず、コンテナも待たず、確認は1回0.
+ 5秒未満。マイグレーションが保存するたびテストでき
+ るものへ変わりました。これを小さな運営型スマホゲ
+ ームで運用してきました。\n\n話すこと\n- DBエンジンを
+ 組み込む価値\n- SQL方言をそのまま使う互換実装やwasm\n-
+  原理的に戻せないDROPをどう検証するか\n- ALTERの積み重
+ ねから全体像を取り戻す\n- 本番にツールは不要、SQLフ
+ ァイルをそのまま使う\n- 見えてきた課題\n\nテーブルは
+ クラスではありません。継ぎ足されて生き続けるスキ
+ ーマを、DBと同じ寿命のSQLで管理する選択肢を提示しま
+ す。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/013ab180-a560-434c-8582-8f2f
+ 3f6695f3
+END:VEVENT
+END:VCALENDAR

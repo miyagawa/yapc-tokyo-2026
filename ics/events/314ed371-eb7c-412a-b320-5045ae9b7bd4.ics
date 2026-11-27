@@ -1,0 +1,37 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:314ed371-eb7c-412a-b320-5045ae9b7bd4@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T023000Z
+DTEND:20261128T031000Z
+SUMMARY:あけおめLINE 傾向とその対策 — nasa9084
+LOCATION:Track B
+DESCRIPTION:登壇者: nasa9084\nhttps://fortee.jp/yapc-tokyo-2026/proposal
+ /314ed371-eb7c-412a-b320-5045ae9b7bd4\n\n1月1日の0時0分、LINEスタ
+ ンプを管理しているサーバへのリクエスト数が急増し
+ ます。「あけおめLINE」です。\n\n当然、準備をしていな
+ ければサーバはあっという間にダウンし、ユーザは一
+ 年に一回のイベントでスタンプを送ることができず、
+ 不満を持ち、翌年以降はLINEスタンプを送ることをやめ
+ てしまうかもしれません。あけおめLINEはユーザの文化
+ としても重要なものですが、新年の挨拶向けスタンプ
+ も数多く発売されるなど、ビジネス的にも非常に重要
+ なものとなっています。\n\nSREとして、年にたった一回
+ 、しかも予想できるスパイクでサービスを落とすわけ
+ にはいきません。\nしかし、こういった超大型スパイク
+ にどのように準備・対応を進めれば良いのでしょうか
+ ？\n我々がどれだけの時間をかけて、どのようにして平
+ 和な年末年始を迎える準備を進めているか、その一端
+ をご紹介します。\n\n## 話すこと\n* 新年の前後、準備や
+ 後片付けとしてどのようなことをするのか\n* どのよう
+ にしてピークトラフィックを予測するのか
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/314ed371-eb7c-412a-b320-5045
+ ae9b7bd4
+END:VEVENT
+END:VCALENDAR

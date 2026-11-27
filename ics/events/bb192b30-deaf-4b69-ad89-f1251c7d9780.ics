@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:bb192b30-deaf-4b69-ad89-f1251c7d9780@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T020500Z
+DTEND:20261129T024500Z
+SUMMARY:サービスも新規開発も止めない大規模アカウント
+ 基盤のリプレイス — 佐藤 / 小室
+LOCATION:Track A
+DESCRIPTION:登壇者: 佐藤 / 小室\nhttps://fortee.jp/yapc-tokyo-2026/p
+ roposal/bb192b30-deaf-4b69-ad89-f1251c7d9780\n\nニンテンドーアカ
+ ウントは、Nintendo Switch 2やNintendo Switch、スマートフォン
+ 向けアプリなど、任天堂が提供する様々なサービスを
+ 利用するためのアカウント基盤です。\n2015年のリリー
+ ス以降、現在164の国・地域で展開され、4億を超える数
+ のアカウント (2025年9月末時点) を支えるほどの大規模
+ なアカウント基盤に成長しました。\nこのアカウント基
+ 盤は Perl で実装され、長年にわたりニンテンドーアカ
+ ウントの成長を支え続けてきました。現在は私たちニ
+ ンテンドーシステムズが開発・運用を行っています。\n
+ \nしかし、サービス拡大に伴う新機能の実装を含むシス
+ テム改修の積み重ねによって、徐々に理解容易性、変
+ 更容易性の低下などの課題が生じてきました。そこで
+ 現在、仕様の整理とアプリケーションの再設計を伴う J
+ ava の新たなアプリケーション基盤へのリプレイスを実
+ 施しています。\n\n本セッションでは、日々の新規開発
+ を続けながら、アカウント基盤を一切停止させず、メ
+ ンテナンスなしで安全にリプレイスを行うための取り
+ 組みをご紹介します。\n\n以下のような内容をお話しす
+ る予定です。\n\n- PerlからJavaへのリプレイスが発足した
+ 背景\n- リプレイスの流れと戦略\n- 新規開発を止めない
+ ための段階的移行\n- アプリケーション再設計がなぜ必
+ 要になりどのような選択をしたのか\n- リプレイス前後
+ の互換性を保証するための仕組み\n- 新規開発もリプレ
+ イスも同時に進行させるためのプロジェクト管理\n\n本
+ セッションを通して、大規模かつミッションクリティ
+ カルなシステムを安全に刷新するための実践的な知見
+ を共有します。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/bb192b30-deaf-4b69-ad89-f125
+ 1c7d9780
+END:VEVENT
+END:VCALENDAR

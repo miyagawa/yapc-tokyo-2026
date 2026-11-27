@@ -1,0 +1,46 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:9bb38a9c-ee76-4032-b1a3-a54e6df7639c@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T020500Z
+DTEND:20261129T024500Z
+SUMMARY:レトロゲームエミュレータ作りの嗜み — bokuweb
+LOCATION:Track C
+DESCRIPTION:登壇者: bokuweb\nhttps://fortee.jp/yapc-tokyo-2026/proposal/
+ 9bb38a9c-ee76-4032-b1a3-a54e6df7639c\n\n生成AIに聞けば、レトロ
+ ゲームエミュレータの実装もさほど時間を要さずに完
+ 成する時代となってきました。\nそんな今、自分の手で
+ ゲーム機のエミュレータを作る意味はどこにあるので
+ しょうか。\n\n私はこれまでファミコン、ゲームボーイ
+ 、ゲームボーイアドバンスのエミュレータを自作して
+ きました。実際に作ってみると、CPUの命令を実装する
+ だけではゲームは動きません。6502系CPU、LR35902、ARM7TDMI
+ という異なるCPUを起点に、メモリマップ、割り込み、
+ タイマー、描画、入力、DMA、カートリッジなど、独立
+ して見える仕組みを理解し、正しいタイミングでつな
+ ぎ合わせて、ようやく一本のゲームが動き始めます。\n
+ \n本トークでは、3世代のゲーム機、その中でもゲーム
+ ボーイアドバンスをメイン題材に、エミュレータの基
+ 本的なアーキテクチャ、実装で特に大変だったことや
+ 楽しかったことを紹介できればと思います。\n合わせて
+ 、先人たちが残してきた解析資料、ドキュメント、テ
+ ストROMなどの偉業にも目を向けます。エミュレータ開
+ 発は、何十年にもわたるハッカーたちの知恵の積み重
+ ねの上に成り立っています。\n\nAIは実装を大きく助け
+ てくれます。それでも、なぜその1行が必要なのかを理
+ 解し、仮説を立て、少しずつ動くものを組み上げ、最
+ 後にゲームが起動した瞬間の喜びは、自分で作ってみ
+ なければ味わえません。\n\nエミュレータ開発を入り口
+ に、コンピュータ歴史とそれが動く仕組みを知る面白
+ さ、先人の知恵を読み解く楽しさ、そしてAI時代だから
+ こそ「学び、知り、作る」ことの価値を共有します。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/9bb38a9c-ee76-4032-b1a3-a54e
+ 6df7639c
+END:VEVENT
+END:VCALENDAR

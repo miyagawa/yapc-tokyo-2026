@@ -1,0 +1,38 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:fe6f8345-2706-4408-952f-a7e003021e2f@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T075000Z
+DTEND:20261128T081000Z
+SUMMARY:(オンプレ)GPUインフラここが辛いよ — LaPh
+LOCATION:Track C
+DESCRIPTION:登壇者: LaPh\nhttps://fortee.jp/yapc-tokyo-2026/proposal/fe6
+ f8345-2706-4408-952f-a7e003021e2f\n\n数千個のモデルをデプロイ
+ しながら、オンプレ、クラウドなどベンダーロックイ
+ ンを避けながらGPUインフラを運用することの辛さを徹
+ 底的に垂れ流します。\n\n弊社ラディウス・ファイブのc
+ opainter、あるいはそれ以外で使用する生成インフラは、
+ 国内としては非常に珍しく、画像生成AI、それも自社の
+ モデル基盤を持ちます。\n\nスタートアップにおける最
+ 大の問題点であるGPUインフラのコストバランスを取る
+ ために、オンプレミスのGPUなども使用しています。\n\nG
+ PUインフラはCPUと違い、メンテナンス、電力量、そして
+ 実行基盤としての考え方が全く違います。\nこれらをど
+ のようにして並列実行を現実的にしながら、どのよう
+ にして安定したデプロイ、実行、保守を行うか。\nそし
+ てどのように一貫性を取っているのかを徹底的に分解
+ していきます。\n\nモデル構築ではなく、その後のモデ
+ ルを継続して運用すること、運用の中で担保するべき
+ 一貫性、CD、フィードバックのループを行うのか。\n人
+ 目につかない、語られない部分が、どのように機能し
+ ているかを知っていただきたいです。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/fe6f8345-2706-4408-952f-a7e0
+ 03021e2f
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,41 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:10771df2-bcf7-4e40-961c-4e94b6bee047@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T020500Z
+DTEND:20261129T024500Z
+SUMMARY:HTTPの更なる高速化を支える新しい輻輳制御技術 
+ — 奥一穂
+LOCATION:Track B
+DESCRIPTION:登壇者: 奥一穂\nhttps://fortee.jp/yapc-tokyo-2026/proposa
+ l/10771df2-bcf7-4e40-961c-4e94b6bee047\n\nHTTPをはじめ、インター
+ ネットを介する通信の速度は、利用可能な帯域を公平
+ に分割共有するためのアルゴリズムである「輻輳制御
+ 」によってコントロールされています。従来、輻輳制
+ 御はTCPとともにカーネル内に実装され、すべてのプロ
+ セスで同一の方式を使うのが一般的でした。しかし、
+ 近年普及しつつあるHTTP/3では、トランスポート層(QUIC)
+ から輻輳制御、そしてHTTPプロトコルまでの全てをHTTPラ
+ イブラリとして一体で実装します。この結果、カーネ
+ ル側での改善を待たずとも、HTTPの特性にあわせた輻輳
+ 制御を研究開発し実装することが現実的になりました
+ 。\nHTTP通信で大切な指標は、レスポンスの先頭を受信
+ するまでの時間(TTFB）と末尾までの時間(TTLB)です。QUIC
+ が通信確立にかかる時間を極小化しTTFBを削減した一方
+ 、TTLBの削減は輻輳制御の改善にかかっています。\n本
+ トークでは、輻輳制御の基本的な概念と設計制約には
+ じまり、現在一般的な手法であるSlow Start/CUBICを紹介し
+ ます。ついで、発表者らが提案し運用している「Rapid St
+ art」と「CUBACK」が、諸々の制約を満たしつつどのよう
+ にTTLBを改善しているか、運用で得られた数値とともに
+ 解説します。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/10771df2-bcf7-4e40-961c-4e94
+ b6bee047
+END:VEVENT
+END:VCALENDAR

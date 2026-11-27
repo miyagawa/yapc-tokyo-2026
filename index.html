@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>YAPC::Tokyo 2026 タイムテーブル（非公式モバイル版）</title>
+<meta name="description" content="YAPC::Tokyo 2026 のタイムテーブルをスマホで見やすくした非公式ビュー。データは fortee の公開 API から取得しています。">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f6f6f3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16171a" media="(prefers-color-scheme: dark)">
+<style>
+:root{
+  --bg:#f6f6f3;--card:#fff;--fg:#1d1e20;--muted:#676a70;--line:#e2e2dd;
+  --accent:#b3261e;--accent-bg:#fbe9e7;--next:#1f5fbf;--next-bg:#e6eefb;
+  --chip:#ecece7;--chip-on:#1d1e20;--chip-on-fg:#fff;--star:#d99a00;
+  --tA:#b3261e;--tB:#1f5fbf;--tC:#2e7d32;--tH:#8e44ad;--tO:#b26a00;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#16171a;--card:#202226;--fg:#ececea;--muted:#a0a3a8;--line:#33363b;
+    --accent:#ff8a80;--accent-bg:#3a2321;--next:#8ab4f8;--next-bg:#1e2a3d;
+    --chip:#2b2e33;--chip-on:#ececea;--chip-on-fg:#16171a;--star:#ffc93c;
+    --tA:#ff8a80;--tB:#8ab4f8;--tC:#81c995;--tH:#d7aefb;--tO:#fdc56b;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:15px/1.5 -apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI",Meiryo,sans-serif}
+a{color:inherit}
+.wrap{max-width:720px;margin:0 auto;padding:0 12px calc(80px + env(safe-area-inset-bottom))}
+header.top{padding:14px 4px 6px}
+header.top h1{font-size:19px;margin:0;line-height:1.3}
+.note{font-size:12px;color:var(--muted);margin:4px 0 0}
+.note a{color:var(--muted)}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0 6px;border-bottom:1px solid var(--line)}
+.row{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0}
+.row::-webkit-scrollbar{display:none}
+.row+.row{margin-top:6px}
+button.chip{flex:0 0 auto;border:0;border-radius:999px;background:var(--chip);color:var(--fg);
+  font:inherit;font-size:13px;padding:6px 12px;cursor:pointer;white-space:nowrap}
+button.chip[aria-pressed=true]{background:var(--chip-on);color:var(--chip-on-fg);font-weight:600}
+button.chip.day{font-size:14px;padding:7px 14px}
+.slot{margin-top:14px}
+.slot>h2{font-size:14px;margin:0 0 6px;padding:0 4px;display:flex;align-items:center;gap:8px;
+  color:var(--muted);font-variant-numeric:tabular-nums}
+.slot>h2 .t{color:var(--fg);font-size:17px;font-weight:700}
+.badge{font-size:11px;font-weight:700;border-radius:4px;padding:1px 6px;color:#fff}
+.badge.now{background:var(--accent)}
+.badge.next{background:var(--next)}
+@media (prefers-color-scheme: dark){.badge.now,.badge.next{color:#16171a}}
+.card{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--tc,var(--line));
+  border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.card.now{box-shadow:0 0 0 2px var(--accent) inset;background:var(--accent-bg)}
+.card.next{background:var(--next-bg)}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.trk{font-weight:700;color:var(--tc,var(--muted))}
+.title{font-size:16px;font-weight:700;margin:3px 0 2px;line-height:1.4;overflow-wrap:anywhere}
+.title a{text-decoration:none}
+.title a:active{text-decoration:underline}
+.sp{font-size:14px;color:var(--fg)}
+.sp .tw{color:var(--muted);font-size:12px}
+.acts{display:flex;gap:14px;align-items:center;margin-top:6px;font-size:13px}
+.acts a{color:var(--muted)}
+button.star{border:0;background:none;padding:0 2px;font-size:20px;line-height:1;color:var(--muted);cursor:pointer;margin-left:auto}
+button.star[aria-pressed=true]{color:var(--star)}
+details{margin-top:6px;font-size:13px;color:var(--muted)}
+details summary{cursor:pointer}
+details p{white-space:pre-wrap;margin:6px 0 0;color:var(--fg);overflow-wrap:anywhere}
+.brk{font-size:13px;color:var(--muted);padding:2px 6px}
+.brk span+span::before{content:" · "}
+.empty{padding:30px 8px;text-align:center;color:var(--muted)}
+section.ics{margin-top:28px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:14px}
+section.ics h2{font-size:15px;margin:0 0 6px}
+section.ics ul{margin:4px 0;padding-left:18px}
+section.ics li{margin:4px 0}
+footer{margin-top:20px;font-size:12px;color:var(--muted);padding:0 4px}
+#jump{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:6;border:0;border-radius:999px;
+  background:var(--accent);color:#fff;font:inherit;font-weight:700;padding:10px 16px;box-shadow:0 2px 8px rgba(0,0,0,.25);display:none}
+@media (prefers-color-scheme: dark){#jump{color:#16171a}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <h1>YAPC::Tokyo 2026 タイムテーブル</h1>
+  <p class="note">これは<strong>非公式</strong>のスマホ向けビューです。正確な情報は<a href="https://fortee.jp/yapc-tokyo-2026/timetable">公式タイムテーブル（fortee）</a>を確認してください。<span id="fetched"></span></p>
+</header>
+<div class="bar">
+  <div class="row" id="days" role="group" aria-label="日付"></div>
+  <div class="row" id="tracks" role="group" aria-label="トラック"></div>
+</div>
+<main id="list"><p class="empty">読み込み中…</p></main>
+<section class="ics" id="ics">
+  <h2>カレンダー (.ics)</h2>
+  <ul>
+    <li><a href="ics/all.ics">全日程</a>（<a href="ics/talks.ics">トークのみ</a>）</li>
+    <li id="dayics"></li>
+    <li><a href="#" id="starics">★を付けたトークだけ .ics でダウンロード</a></li>
+    <li><a id="webcal" href="ics/all.ics">カレンダーアプリで購読</a>（更新が自動で反映されます）</li>
+  </ul>
+  <p class="note">各トークの「カレンダーに追加」からも個別に追加できます。</p>
+</section>
+<footer>
+  データ: <a href="https://fortee.jp/yapc-tokyo-2026/api/timetable">fortee 公開 API</a>。
+  トーク情報の著作権は各登壇者・主催者に帰属します。
+  ソース: <a href="https://github.com/miyagawa/yapc-tokyo-2026">github.com/miyagawa/yapc-tokyo-2026</a>
+</footer>
+</div>
+<button id="jump" type="button">今へ ↓</button>
+<script>
+(function(){
+"use strict";
+var DAY_LABEL={"2026-11-27":"11/27 (金) 前夜祭","2026-11-28":"11/28 (土) Day 1","2026-11-29":"11/29 (日) Day 2"};
+var TRACK_COLOR={"Track A":"--tA","Track B":"--tB","Track C":"--tC","ハンズオン":"--tH","踊り場":"--tO"};
+var BREAK=/^(休憩|転換|間|ランチ休憩)$/;
+var $=function(id){return document.getElementById(id)};
+var store={get:function(k,d){try{var v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+  set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+var stars=store.get("stars",{});
+var state={day:null,track:store.get("track","all")};
+var events=[],days=[],tracks=[];
+
+function nowMs(){
+  var q=location.search.match(/[?&]now=([^&]+)/); // ?now=2026-11-28T11:35 for testing
+  if(q){var t=Date.parse(decodeURIComponent(q[1])+(/[+Z]/.test(q[1].slice(10))?"":"+09:00"));if(!isNaN(t))return t}
+  return Date.now();
+}
+function jstDate(ms){return new Date(ms+9*3600e3).toISOString().slice(0,10)}
+function hm(ms){return new Date(ms+9*3600e3).toISOString().slice(11,16)}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+
+function chip(label,pressed,cls,on){
+  var b=document.createElement("button");b.type="button";b.className="chip"+(cls?" "+cls:"");
+  b.textContent=label;b.setAttribute("aria-pressed",pressed?"true":"false");b.onclick=on;return b;
+}
+function renderBars(){
+  var d=$("days");d.textContent="";
+  days.forEach(function(day){d.appendChild(chip(DAY_LABEL[day]||day,state.day===day,"day",function(){state.day=day;render(true)}))});
+  if(events.some(function(e){return !e.s}))d.appendChild(chip("時間未定",state.day==="tbd","day",function(){state.day="tbd";render(true)}));
+  var t=$("tracks");t.textContent="";
+  [["all","すべて"],["star","★ のみ"]].concat(tracks.map(function(x){return[x,x]})).forEach(function(p){
+    t.appendChild(chip(p[1],state.track===p[0],"",function(){state.track=p[0];store.set("track",p[0]);render(false)}));
+  });
+}
+function card(e,cls){
+  var c=TRACK_COLOR[e.track];
+  var end=e.s+(e.length||0)*60e3;
+  var title=e.url?'<a href="'+esc(e.url)+'" target="_blank" rel="noopener">'+esc(e.title)+'</a>':esc(e.title);
+  var h='<article class="card'+(cls?" "+cls:"")+'"'+(c?' style="--tc:var('+c+')"':"")+'>'+
+    '<div class="meta">'+(e.track?'<span class="trk">'+esc(e.track)+'</span>':"")+
+    (e.s?'<span>'+hm(e.s)+'–'+hm(end)+'</span>':"")+(e.length?'<span>'+e.length+'分</span>':"")+
+    (cls==="now"?'<span class="badge now">開催中</span>':cls==="next"?'<span class="badge next">次</span>':"")+'</div>'+
+    '<div class="title">'+title+'</div>'+
+    (e.speaker?'<div class="sp">'+esc(e.speaker)+(e.twitter?' <span class="tw">@'+esc(e.twitter)+'</span>':"")+'</div>':"")+
+    (e.abstract?'<details><summary>概要</summary><p>'+esc(e.abstract)+'</p></details>':"")+
+    '<div class="acts">'+(e.url?'<a href="'+esc(e.url)+'" target="_blank" rel="noopener">fortee で見る</a>':"")+
+    (e.s?'<a href="ics/events/'+esc(e.id)+'.ics">カレンダーに追加</a>':"")+
+    '<button type="button" class="star" data-id="'+esc(e.id)+'" aria-pressed="'+(stars[e.id]?"true":"false")+'" aria-label="★">'+(stars[e.id]?"★":"☆")+'</button></div>'+
+    '</article>';
+  return h;
+}
+function visible(e){
+  if(state.track==="star")return !!stars[e.id];
+  if(state.track!=="all")return e.track===state.track;
+  return true;
+}
+function render(scroll){
+  renderBars();
+  var now=nowMs(),list=$("list"),html="";
+  if(state.day==="tbd"){
+    var u=events.filter(function(e){return !e.s&&visible(e)});
+    html='<div class="slot"><h2><span class="t">時間未定</span>（LT などの採択トーク）</h2>'+u.map(function(e){return card(e)}).join("")+'</div>';
+    list.innerHTML=u.length?html:'<p class="empty">該当するトークはありません</p>';
+    $("jump").style.display="none";return;
+  }
+  var dayEv=events.filter(function(e){return e.s&&e.day===state.day});
+  // "next" = earliest start time after now among non-break items of this day
+  var nextT=null;
+  dayEv.forEach(function(e){if(e.s>now&&!e.brk&&(nextT===null||e.s<nextT))nextT=e.s});
+  var slots={},order=[];
+  dayEv.forEach(function(e){if(!slots[e.s]){slots[e.s]=[];order.push(e.s)}slots[e.s].push(e)});
+  var anchor=null;
+  order.forEach(function(t){
+    var items=slots[t],real=items.filter(function(e){return !e.brk&&visible(e)});
+    var brks=items.filter(function(e){return e.brk&&(state.track==="all"||state.track===e.track)});
+    if(!real.length&&(!brks.length||state.track==="star"))return;
+    var isNow=real.some(function(e){return e.s<=now&&now<e.e}),isNext=t===nextT;
+    if(anchor===null&&(isNow||isNext))anchor=t;
+    if(!real.length){
+      var names={};brks.forEach(function(e){names[e.title]=1});
+      html+='<div class="slot" id="s'+t+'"><div class="brk"><span>'+hm(t)+'</span>'+Object.keys(names).map(function(n){return'<span>'+esc(n)+'</span>'}).join("")+'</div></div>';
+      return;
+    }
+    html+='<div class="slot" id="s'+t+'"><h2><span class="t">'+hm(t)+'</span>'+
+      (isNow?'<span class="badge now">NOW</span>':isNext?'<span class="badge next">NEXT</span>':"")+'</h2>'+
+      real.map(function(e){return card(e,e.s<=now&&now<e.e?"now":isNext?"next":"")}).join("")+'</div>';
+  });
+  list.innerHTML=html||'<p class="empty">'+(state.track==="star"?"★を付けたトークはまだありません。各トークの ☆ をタップしてください。":"該当するトークはありません")+'</p>';
+  var j=$("jump");
+  if(anchor!==null){j.style.display="block";j.onclick=function(){go(anchor)};if(scroll&&jstDate(now)===state.day)go(anchor)}
+  else j.style.display="none";
+}
+function go(t){var el=$("s"+t);if(el){var y=el.getBoundingClientRect().top+scrollY-document.querySelector(".bar").offsetHeight-4;scrollTo({top:y,behavior:"smooth"})}}
+
+$("list").addEventListener("click",function(ev){
+  var b=ev.target.closest("button.star");if(!b)return;
+  var id=b.getAttribute("data-id");
+  if(stars[id])delete stars[id];else stars[id]=1;
+  store.set("stars",stars);
+  b.setAttribute("aria-pressed",stars[id]?"true":"false");b.textContent=stars[id]?"★":"☆";
+  if(state.track==="star")render(false);
+});
+$("starics").addEventListener("click",function(ev){
+  ev.preventDefault();
+  var ids=Object.keys(stars).filter(function(id){return events.some(function(e){return e.id===id&&e.s})});
+  if(!ids.length){$("starics").textContent="★を付けたトークがありません（各トークの ☆ をタップ）";return}
+  Promise.all(ids.map(function(id){return fetch("ics/events/"+id+".ics").then(function(r){return r.text()})})).then(function(txts){
+    var ve=txts.map(function(t){var m=t.match(/BEGIN:VEVENT[\s\S]*?END:VEVENT\r?\n/);return m?m[0]:""}).join("");
+    var head=txts[0].split("BEGIN:VEVENT")[0].replace(/X-WR-CALNAME:[^\r\n]*/,"X-WR-CALNAME:YAPC::Tokyo 2026 ★");
+    var blob=new Blob([head+ve+"END:VCALENDAR\r\n"],{type:"text/calendar"});
+    var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="yapc-tokyo-2026-stars.ics";
+    document.body.appendChild(a);a.click();a.remove();
+  });
+});
+
+var base=location.href.replace(/[?#].*$/,"").replace(/[^/]*$/,"");
+if(/^https:/.test(base))$("webcal").href=base.replace(/^https:/,"webcal:")+"ics/all.ics";
+
+fetch("data/timetable.json",{cache:"no-cache"}).then(function(r){return r.json()}).then(function(d){
+  events=d.events.map(function(e){
+    var s=e.start?Date.parse(e.start):null;
+    return Object.assign(e,{s:s,e:s?s+(e.length||0)*60e3:null,day:s?jstDate(s):null,
+      brk:e.type==="timeslot"&&!e.speaker&&BREAK.test(e.title)});
+  });
+  days=[];tracks=[];
+  events.forEach(function(e){
+    if(e.day&&days.indexOf(e.day)<0)days.push(e.day);
+    if(e.track&&tracks.indexOf(e.track)<0)tracks.push(e.track);
+  });
+  days.sort();
+  tracks.sort(function(a,b){var x=events.find(function(e){return e.track===a}),y=events.find(function(e){return e.track===b});return x.track_sort-y.track_sort});
+  if(tracks.indexOf(state.track)<0&&state.track!=="star")state.track="all";
+  var today=jstDate(nowMs());
+  state.day=days.indexOf(today)>=0?today:(today<"2026-11-28"?"2026-11-28":days[days.length-1]);
+  if(days.indexOf(state.day)<0)state.day=days[0];
+  $("fetched").textContent=" データ取得: "+d.fetched_at.replace("T"," ").slice(0,16)+" JST";
+  $("dayics").innerHTML=days.map(function(day){return'<a href="ics/'+day+'.ics">'+esc(DAY_LABEL[day]||day)+'</a>'}).join("　");
+  render(true);
+  // re-render only when now/next changes, so open 概要 stay open
+  var sig=function(){var n=nowMs();return events.map(function(e){return e.s&&e.s<=n&&n<e.e?1:e.s>n?2:0}).join("")};
+  var last=sig();
+  setInterval(function(){var s=sig();if(s!==last){last=s;render(false)}},30e3);
+}).catch(function(){$("list").innerHTML='<p class="empty">データを読み込めませんでした。<a href="https://fortee.jp/yapc-tokyo-2026/timetable">公式タイムテーブル</a>をご覧ください。</p>'});
+})();
+</script>
+</body>
+</html>

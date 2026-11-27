@@ -1,0 +1,31 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:4b4ba620-537c-4748-9512-72bb5aaa86e7@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T052000Z
+DTEND:20261129T060000Z
+SUMMARY:日本の Web と標準化の距離 — Jxck
+LOCATION:Track A
+DESCRIPTION:登壇者: Jxck\nhttps://fortee.jp/yapc-tokyo-2026/proposal/4b4
+ ba620-537c-4748-9512-72bb5aaa86e7\n\n我々は Web 開発を行う際に
+ 、様々な標準技術を用いている。\nこの標準は、人間が
+ 議論を重ね、検証を重ね、失敗を重ねて積み上げてき
+ たものだ。\n仕様を読み、議論をし、実際に使い、フィ
+ ードバックをする。\nそのすべてのフェーズに、我々は
+ 様々な形で参加することができる。\nでは、我々はこの
+  "標準化" という営みの重要性を、本当に理解し、参加
+ し、活用できているだろうか？\nこと日本において、我
+ 々エンジニアは、本当に Web 標準 と "適切な距離" を取
+ ってこれたのだろうか？\n\n\n*このトークは Stand-up Tech T
+ alk です。資料はタイトル 1 枚だけ表示し、マイク一本
+ でトークします。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/4b4ba620-537c-4748-9512-72bb
+ 5aaa86e7
+END:VEVENT
+END:VCALENDAR

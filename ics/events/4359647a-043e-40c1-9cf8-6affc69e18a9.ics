@@ -1,0 +1,41 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:4359647a-043e-40c1-9cf8-6affc69e18a9@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T042500Z
+DTEND:20261129T044500Z
+SUMMARY:No Review で実現する高速開発 ― レビューをする領
+ 域・しない領域 — toshimaru
+LOCATION:Track C
+DESCRIPTION:登壇者: toshimaru\nhttps://fortee.jp/yapc-tokyo-2026/proposa
+ l/4359647a-043e-40c1-9cf8-6affc69e18a9\n\n私のチームでは、新機
+ 能開発の一部の変更について、コードレビューの必須
+ 化をやめました。\n\nこれにより開発サイクルの「人間
+ のレビュー待ち」というボトルネックを解消すること
+ ができ、開発速度が劇的に向上しました。一方で、リ
+ リース前の QA で重大なバグが見つかることはありませ
+ んでした。すなわち品質を犠牲に開発を高速化したわ
+ けではありません。\n\n本トークでは、品質を保ちつつ
+ 、高速開発を実現するための No Review 運用の取り組みを
+ ご紹介いたします。\n\n## 話すこと\n\n- なぜ No Review 運
+ 用を始めたのか？\n- なんのコードレビューを外すのか
+ ？ ― コードレビューを外した領域・外さなかった領域
+ \n- なぜ No Review 運用でも成立するのか？ ― No Review を
+ 支える文化・ AI による一次レビュー\n- No Review 運用の
+ 結果 ― 開発速度と品質への影響\n\n## 話さないこと\n\n-
+  コードレビューという行為そのものの否定\n- 特定の AI
+  レビューツールの比較・優劣\n\n## 対象者\n\n- レビュー
+ 待ちがリードタイムのボトルネックになっているチー
+ ム\n- 開発サイクルをもっと高速に回したい方\n- チーム
+ の開発プロセスを設計・改善する立場にある方（テッ
+ クリード / EM など）
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/4359647a-043e-40c1-9cf8-6aff
+ c69e18a9
+END:VEVENT
+END:VCALENDAR

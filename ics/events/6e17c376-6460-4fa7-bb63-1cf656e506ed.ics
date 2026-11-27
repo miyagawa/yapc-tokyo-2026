@@ -1,0 +1,52 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:6e17c376-6460-4fa7-bb63-1cf656e506ed@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T011000Z
+DTEND:20261129T013000Z
+SUMMARY:Perl on Ruby → Ruby on Python → Python on Perl → ... — make
+ nowjust
+LOCATION:Track B
+DESCRIPTION:登壇者: makenowjust\nhttps://fortee.jp/yapc-tokyo-2026/propo
+ sal/6e17c376-6460-4fa7-bb63-1cf656e506ed\n\nWebAssemblyにコンパイル
+ することで、WebAssemblyランタイムがあれば環境に依存せ
+ ず実行できるバイナリが得られます。\nそして、Perl (zer
+ operl) やRuby (ruby.wasm) など様々なプログラミング言語がWe
+ bAssemblyへのコンパイルをサポートしています。\n\nそれ
+ では、WebAssemblyバイナリを様々なプログラミング言語の
+ ソースコードに変換することができたとしたらどうで
+ しょうか？\n例えば、zeroperlをRubyのソースコードに変換
+ することで、Rubyで書かれたPerlランタイムが手に入るわ
+ けです。\nそして、それはこんな風にRubyから利用でき
+ ます。\n\n```ruby\nrequire_relative "zeroperl"\n\nperl = Zeroperl.new(\
+ n  { "env" => { "call_host_function" => ->(_\, _\, _) { 0 } } }\,\n  preop
+ ens: { "/dev/null" => "/dev/null" }\,\n)\nperl.invoke("_initialize")\nperl
+ .invoke("zeroperl_init")\n\nprogram = 'printf("Hello\, %s!\\n"\, "YAPC::To
+ kyo")\;' "\\0"\nptr = perl.invoke("malloc"\, program.bytesize)\nperl.memor
+ y.init(ptr\, program\, 0\, program.bytesize)\nperl.invoke("zeroperl_eval"\
+ , ptr\, 0\, 0\, 0)\nperl.invoke("zeroperl_flush")  # => Hello\, YAPC::Toky
+ o!\n```\n\n同様に、ruby.wasmをPythonのソースコードに変換す
+ ればPythonで書かれたRubyランタイムが手に入ります。\n
+ あるプログラミング言語のランタイムを別の言語から
+ 簡単に利用できるようになるわけです。\n\nこれは絵空
+ 事でしょうか？　そんなことはありません。\n[dewasm](htt
+ ps://github.com/dewasm/dewasm)であれば、wasmファイルをRubyやPyt
+ hon、そして **Perl** のソースコードに変換できます。\n\n
+ 今回の発表ではdewasmをなぜ・どのようにして開発した
+ のか、dewasmの活用例、そして中間表現としてのWebAssembly
+ の可能性について掘り下げていきます。\n\n**発表内容 (
+ 予定)**:\n\n- WebAssemblyとは？\n- dewasmで何ができるのか\n- 
+ dewasmの仕組み\n- テストの設計 (wasm\, wasiのテストスイー
+ トについて)\n- dewasmを使ったライブラリを公開するには
+ \n- dewasmの課題 (サイズ・パフォーマンスの問題)\n- WebAss
+ emblyの可能性について
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/6e17c376-6460-4fa7-bb63-1cf6
+ 56e506ed
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,60 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:88ae1945-0621-476f-b4a6-0d36f361b7c7@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T041000Z
+DTEND:20261128T045000Z
+SUMMARY:PAGI で広がる Perl の Web 開発。quiche で HTTP/3 サーバ
+ ーを作ってみた — codehex
+LOCATION:Track A
+DESCRIPTION:登壇者: codehex\nhttps://fortee.jp/yapc-tokyo-2026/proposal/
+ 88ae1945-0621-476f-b4a6-0d36f361b7c7\n\n皆さんは、PAGI を知って
+ いますか？\nこれまで Perl を使った Web 開発では、PSGI 
+ がリクエストとレスポンスの受け渡し方を共通化して
+ きました。そのおかげで、サーバーとフレームワーク
+ を別々に選び、組み合わせることができました。\n\nPyth
+ on にも、PSGI と同じ役割を担う WSGI があります。その設
+ 計を非同期の Web へ広げるために登場したのが FastAPI で
+ も利用されている ASGI です。\nWebSocket のように接続中
+ に何度もメッセージが届く通信では、単にレスポンス
+ を非同期に返すだけでは足りません。そこで ASGI は、
+ 通信の情報を表す scope と、イベントを非同期に受け取
+ る receive、送る send を共通インターフェースにしました
+ 。\n\nこの ASGI に着想を得て、Perl の非同期 Web アプリケ
+ ーション向けに生まれた仕様が PAGI です。\n Future::AsyncA
+ wait を使い、同じようなイベントのやり取りを Perl で書
+ けます。2025年の12月ごろに登場したばかりで、現在も
+ 開発が活発に続いています。\nHTTP/1.1 に加えて、WebSocket
+  や HTTP/2、Server-Sent Events (SSE) などを共通のインターフ
+ ェースで扱うことを目指しており、参照実装の PAGI::Serv
+ er も開発されています。\nhttps://metacpan.org/dist/PAGI/view/lib
+ /PAGI/Spec.pod\n\nもちろん、Perl には皆さんが大好きな Mojol
+ icious という非同期 Web アプリケーションフレームワー
+ クがあり、それで大体のことを実現できます。\n私が PA
+ GI に惹かれたのは、その送受信のやり取りを、異なる
+ サーバーやフレームワークの間でも共有しようとして
+ いる、PSGI に通じるところです。\n\nこうしたインター
+ フェースがあるなら、QUIC と HTTP/3 のライブラリである 
+ https://github.com/cloudflare/quiche を XS 経由で呼び出し、PAGI 
+ につなげれば、自分でも HTTP/3 サーバーを作れるのでは
+ ないか。そう考えて、実際に作りはじめました。\n\nこ
+ のセッションでは、quiche の XS モジュールを作り、IO::As
+ ync と組み合わせて PAGI 対応の HTTP/3 サーバーを組み立
+ てていった過程をお話しします。\n現在は curl との HTTP/
+ 3 通信で GET や POST が動いており、送信待ちの制御にも
+ 取り組んでいます。YAPC に向けて開発を続け、その過程
+ で得た知見もお話しする予定です。通信の処理をどう P
+ AGI のイベントにつなぐのか、どこで悩み、どう確かめ
+ たのかを、コードとデモを交えて紹介します。\n\nPAGI 
+ を知ったことをきっかけに、Perl でまた何か作ってみた
+ くなる。そんな話ができればと思います。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/88ae1945-0621-476f-b4a6-0d36
+ f361b7c7
+END:VEVENT
+END:VCALENDAR

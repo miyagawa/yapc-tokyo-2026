@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:f906a131-006c-4cfd-9c3c-e04013310f2d@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T020500Z
+DTEND:20261129T030500Z
+SUMMARY:Transformer をあなたの言語で ― 60分で書く LLM 推論
+ 、 Transformer 道場 — riywo
+LOCATION:ハンズオン
+DESCRIPTION:登壇者: riywo\nhttps://fortee.jp/yapc-tokyo-2026/proposal/f9
+ 06a131-006c-4cfd-9c3c-e04013310f2d\n\n「LLM はブラックボックス
+ として使うしかなくて、中がどうなっているのか何も
+ 分からない」 「Attention の解説は読んで図も何度も見た
+ 。それでも、結局何が起こってるのかイマイチ分から
+ ない」 そんな感覚のまま、 LLM を毎日使っていないで
+ しょうか。\n\n実は Transformer (Attention を中心にした機械
+ 学習モデル) の言語モデルの推論そのものは、驚くほど
+ 短い算術の列です。行列積、 RMSNorm、 Softmax、 RoPE、MLP
+ 、そして Attention。学習とは違って、微分も最適化も出
+ てきません。\n\n今回のハンズオンでは、上記の要素を
+ それぞれ簡単に解説した後に、参加者がそれぞれ好き
+ な言語を使って実在する 15M パラメータのモデルを動か
+ す Transformer の推論エンジンをゼロから書きます。 使用
+ する言語は Perl でも何でも構いません。こちらが用意
+ するのは、エージェントスキルと言語に依存しないテ
+ ストスイートと学習済みの重みだけで、あとはご自身
+ のコーディングエージェントを駆使して実装してもら
+ います。\n\n最後まで作りきると、自分のコードから自
+ 然言語が生成されることが確かめられます。早く完走
+ した人には、 KV キャッシュによる高速化や top-p サンプ
+ リングの実装といった発展課題も用意します。\n\n持ち
+ 帰れること:\n- Transformer を作ってみたという実績\n- Trans
+ former の構成要素への一歩踏み込んだ理解\n\n想定する参
+ 加者:\n- コーディングエージェントを使ったソフトウェ
+ ア開発ができる方なら誰でも楽しめます。\n- プログラ
+ ミング言語は問いません。GPU も不要です。\n- 機械学習
+ や、高度な数学の知識も不要です。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/f906a131-006c-4cfd-9c3c-e040
+ 13310f2d
+END:VEVENT
+END:VCALENDAR

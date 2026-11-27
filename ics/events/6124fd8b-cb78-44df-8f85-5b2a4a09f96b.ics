@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:6124fd8b-cb78-44df-8f85-5b2a4a09f96b@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261128T045500Z
+DTEND:20261128T051500Z
+SUMMARY:Security Advisory Patchwork — 伊藤 浩一
+LOCATION:Track B
+DESCRIPTION:登壇者: 伊藤 浩一\nhttps://fortee.jp/yapc-tokyo-2026/pro
+ posal/6124fd8b-cb78-44df-8f85-5b2a4a09f96b\n\n世の中の多くのアプ
+ リケーションは、さまざまな OSS に依存しています。そ
+ んな OSS の安全性を裏側で支える GitHub Security Advisory に
+ ついて、OSS メンテナンスの実運用から得た知見をお話
+ しします。\n\nOSS メンテナーとアプリケーション開発者
+ の間で、セキュリティ脆弱性の情報を繋げる仕組みの
+ ひとつが GitHub Security Advisory です。アプリケーション開
+ 発者視点では、Dependabot などによるセキュリティアップ
+ デートに備えて、いつでもソフトウェアアップデート
+ ができる状況を目指していると思います。本講演では O
+ SS メンテナーの視点から、セキュリティ脆弱性報告を
+ 受けてから、どのような考えでパッチワークを進めて
+ いるのか、その実運用についてお話しします。具体的
+ には、脆弱性報告のトリアージ、非公開でのパッチ作
+ 成、CVE の採番、関係者との調整、パッチの適用と公開
+ などを取り上げます。このようなセキュリティに関わ
+ る作業は、OSS においても非公開で進められるからこそ
+ 、その運用の仕組みや考慮事項はあまり知られていま
+ せん。OSS 開発の中でも、かなり泥臭い作業があり、そ
+ のあたりについても話せる範囲内で取り扱う予定です
+ 。\n\n現実のソフトウェアにはバグが付きものですが、
+ セキュリティ脆弱性の取り扱いに関してはとりわけ注
+ 意が払われていることでしょう。高性能な AI によって
+ 脆弱性発見の能力が高まり、セキュリティ脆弱性の報
+ 告を受け取る機会が増えています。その中で、OSS メン
+ テナーが GitHub Security Advisory を使ってどのように報告と
+ 向き合い、パッチを作り、利用者へ届けているのかを
+ 知り、セキュリティを支えるパッチワークについて考
+ える機会になればと思います。
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/6124fd8b-cb78-44df-8f85-5b2a
+ 4a09f96b
+END:VEVENT
+END:VCALENDAR

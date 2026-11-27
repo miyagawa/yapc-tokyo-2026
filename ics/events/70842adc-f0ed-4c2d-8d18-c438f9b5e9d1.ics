@@ -1,0 +1,37 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//yapc-tokyo-2026 unofficial mobile timetable//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:70842adc-f0ed-4c2d-8d18-c438f9b5e9d1@miyagawa.github.io
+DTSTAMP:20261127T061153Z
+DTSTART:20261129T025000Z
+DTEND:20261129T031000Z
+SUMMARY:ファミコン音源をコードで再現する — 5hun
+LOCATION:Track C
+DESCRIPTION:登壇者: 5hun\nhttps://fortee.jp/yapc-tokyo-2026/proposal/708
+ 42adc-f0ed-4c2d-8d18-c438f9b5e9d1\n\nファミコンのBGMは、矩形波
+ ・三角波・白色雑音などの、ごくわずかな種類の波形
+ の組み合わせのみで作られていました。\nそれにもかか
+ わらず、当時のクリエイターたちはこの限られた音を
+ 組み合わせ、数多くの名曲を生み出しています。\n限ら
+ れた素材の一つ一つを組み合わせて作品を織り上げる
+ という点で、まさにパッチワークの完成形の一つと呼
+ べると思います。\n\n本トークでは、矩形波・三角波・
+ 白色雑音それぞれの波形の特徴（倍音構成の違いなど
+ ）を解説したうえで、波形データを計算する方法をサ
+ ンプルコードとともに紹介します。\nさらに、それらを
+ 組み合わせることでどんな音楽を奏でられるかを実演
+ します。\nRubyの特別な機能は使わないため、他の言語
+ でも同様に再現可能です。\n\nまた、発表者は趣味で楽
+ 器を演奏しており、再現したファミコン音源に合わせ
+ て生演奏する合奏デモも行いたいと思います。\nここで
+ しか聞くことのできない音楽を、ぜひお楽しみくださ
+ い！
+URL:https://fortee.jp/yapc-tokyo-2026/proposal/70842adc-f0ed-4c2d-8d18-c438
+ f9b5e9d1
+END:VEVENT
+END:VCALENDAR
