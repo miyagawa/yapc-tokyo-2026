@@ -1,6 +1,6 @@
 # YAPC::Tokyo 2026 タイムテーブル（非公式モバイル版）
 
-https://miyagawa.github.io/yapc-tokyo-2026/
+https://miyagawa.co/yapc-tokyo-2026/
 
 [公式タイムテーブル (fortee)](https://fortee.jp/yapc-tokyo-2026/timetable) をスマホで見やすくした**非公式**ビューです。
 正確な情報は公式を確認してください。
@@ -14,7 +14,7 @@ https://miyagawa.github.io/yapc-tokyo-2026/
 - `ics/all.ics` 全日程、`ics/talks.ics` トークのみ、`ics/2026-11-2X.ics` 日別
 - `ics/events/<uuid>.ics` トーク単位（各カードの「カレンダーに追加」）
 - ★ を付けたトークはページ下部からまとめてダウンロード
-- `webcal://miyagawa.github.io/yapc-tokyo-2026/ics/all.ics` で購読すると更新が反映されます
+- `webcal://miyagawa.co/yapc-tokyo-2026/ics/all.ics` で購読すると更新が反映されます
 
 ## データ更新
 
