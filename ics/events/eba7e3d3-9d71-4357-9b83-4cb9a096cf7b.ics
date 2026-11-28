@@ -7,7 +7,7 @@ X-WR-CALNAME:YAPC::Tokyo 2026 (非公式)
 X-WR-TIMEZONE:Asia/Tokyo
 BEGIN:VEVENT
 UID:eba7e3d3-9d71-4357-9b83-4cb9a096cf7b@miyagawa.github.io
-DTSTAMP:20261127T061153Z
+DTSTAMP:20261128T033802Z
 DTSTART:20261128T041000Z
 DTEND:20261128T051000Z
 SUMMARY:1時間で作るPerlOS: Yet Another Perl Computer — 竹迫良範
@@ -50,7 +50,10 @@ DESCRIPTION:登壇者: 竹迫良範\nhttps://fortee.jp/yapc-tokyo-2026/prop
  定する参加者\n\n- C言語とPerlの基本的な文法が読めれば
  参加できます。\n- OS自作、アセンブリ、Perl内部実装の
  知識は前提にしません。\n\n# ソースコード\nhttps://github.
- com/takesako/perlos
+ com/takesako/perlos\n\n# ハンズオン資料\nhttps://zenn.dev/takesako/
+ articles/8623cbed6c1bb6\n\n当日ハンズオン会場にいらっしゃ
+ った方にはRaspberry Pi Pico 2互換ボードを配布するので、
+ 実機でPerlOSを動かしていただきます。
 URL:https://fortee.jp/yapc-tokyo-2026/proposal/eba7e3d3-9d71-4357-9b83-4cb9
  a096cf7b
 END:VEVENT
