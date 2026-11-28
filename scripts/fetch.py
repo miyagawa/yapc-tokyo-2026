@@ -6,6 +6,7 @@ Only uses the Python standard library.
 """
 import json
 import os
+import re
 import sys
 import urllib.request
 from datetime import datetime, timedelta, timezone
@@ -72,7 +73,7 @@ def utc(dt):
     return dt.astimezone(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
 
 
-def vevent(e, stamp):
+def vevent(e, stamps):
     start = datetime.fromisoformat(e["start"])
     end = start + timedelta(minutes=e.get("length") or 0)
     title = e["title"]
@@ -89,7 +90,7 @@ def vevent(e, stamp):
     lines = [
         "BEGIN:VEVENT",
         f"UID:{e['id']}@miyagawa.github.io",
-        f"DTSTAMP:{stamp}",
+        f"DTSTAMP:{stamps[e['id']]}",
         f"DTSTART:{utc(start)}",
         f"DTEND:{utc(end)}",
         f"SUMMARY:{ics_escape(title)}",
@@ -103,7 +104,7 @@ def vevent(e, stamp):
     return lines
 
 
-def calendar(events, stamp, name=CAL_NAME):
+def calendar(events, stamps, name=CAL_NAME):
     lines = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
@@ -114,9 +115,31 @@ def calendar(events, stamp, name=CAL_NAME):
         "X-WR-TIMEZONE:Asia/Tokyo",
     ]
     for e in events:
-        lines += vevent(e, stamp)
+        lines += vevent(e, stamps)
     lines.append("END:VCALENDAR")
     return "\r\n".join(fold(l) for l in lines) + "\r\n"
+
+
+def stable_stamps(events, now_stamp):
+    """Keep each event's previous DTSTAMP unless the event itself changed.
+
+    Otherwise every refresh rewrites every .ics file and calendar apps see
+    every event as modified.
+    """
+    stamps = {}
+    for e in events:
+        stamps[e["id"]] = "X"
+        new = calendar([e], stamps)
+        stamps[e["id"]] = now_stamp
+        try:
+            with open(os.path.join(ROOT, "ics", "events", f"{e['id']}.ics"), encoding="utf-8", newline="") as f:
+                old = f.read()
+        except FileNotFoundError:
+            continue
+        m = re.search(r"^DTSTAMP:(\S+)\r$", old, re.M)
+        if m and re.sub(r"^DTSTAMP:\S+\r$", "DTSTAMP:X\r", old, flags=re.M) == new:
+            stamps[e["id"]] = m.group(1)
+    return stamps
 
 
 def write(path, text):
@@ -131,7 +154,6 @@ def main():
     if not events:
         sys.exit("no events fetched; keeping existing data")
     now = datetime.now(JST)
-    stamp = utc(now)
     data = {
         "fetched_at": now.isoformat(timespec="seconds"),
         "source": SOURCE,
@@ -141,6 +163,7 @@ def main():
     write("data/timetable.json", json.dumps(data, ensure_ascii=False, separators=(",", ":")))
 
     scheduled = [e for e in events if e.get("start")]
+    stamp = stable_stamps(scheduled, utc(now))
     talks = [e for e in scheduled if e["type"] == "talk" or e.get("speaker")]
     write("ics/all.ics", calendar(scheduled, stamp))
     write("ics/talks.ics", calendar(talks, stamp, CAL_NAME + " トークのみ"))

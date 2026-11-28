@@ -21,8 +21,8 @@ jobs:
       - run: python3 scripts/fetch.py
       - name: Commit if changed
         run: |
-          # ignore DTSTAMP / fetched_at-only changes
-          if git diff --quiet -I '^DTSTAMP:' -- ics && \
+          # ics only changes when an event changes (DTSTAMP is kept stable); ignore fetched_at-only changes in the JSON
+          if git diff --quiet -- ics && \
              [ "$(git show HEAD:data/timetable.json | python3 -c 'import json,sys;print(json.dumps(json.load(sys.stdin)["events"]))')" = "$(python3 -c 'import json;print(json.dumps(json.load(open("data/timetable.json"))["events"]))')" ]; then
             echo "no changes"; exit 0
           fi
